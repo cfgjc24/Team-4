@@ -10,8 +10,8 @@ function App() {
     <>
       <Router>
         <Routes>
-           {/* <Route path="/" element={<LoginPage/>} />
-          <Route path="/create-account" element={<CreateAccount/>} />  */}
+            <Route path="/" element={<StudentSignIn/>} />
+         {/* <Route path="/create-account" element={<CreateAccount/>} />  */}
           {/* <Route path="/student-signup" element={<StudentSignIn/>} />  */}
           {/* <Route path = "/tutor-signup" element={<TutorSignIn/>} />
           <Route path = "/teacher-signup" element={<TeacherSignIn/>} />
