@@ -10,6 +10,18 @@ const tutorSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    highschool: {
+        type: String,
+        required: true
+    },
+    town: {
+        type: String,
+        required: true
+    },
+    state: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true,
