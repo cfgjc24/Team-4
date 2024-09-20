@@ -16,7 +16,7 @@ const teacherSchema = new mongoose.Schema({
         unique: true // email as primary key
     },
     highschool_id: {
-        type: String,
+        type: int,
         required: true,
         ref: "Highschool" // Reference to the HighSchool collection
     },
