@@ -23,6 +23,14 @@ const tutorSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    gender: {
+        type: String,
+        enum: ['Male', 'Female', 'Non-Binary', 'Other']
+    },
+    pronouns: {
+        type: String,
+        enum: ['He/Him', 'She/Her', 'They/Them', 'Other']
+    },
     availability: {
         type: String,
         required: true
