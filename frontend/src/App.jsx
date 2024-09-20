@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css'
 
 function App() {
@@ -8,26 +7,21 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginPage/>} />
+          <Route path="/create-account" element={<CreateAccount/>} />
+          <Route path="/student-signup" element={<StudentSignIn/>} />
+          <Route path = "tutor-signup" element={<TutorSignIn/>} />
+          <Route path = "teacher-signup" element={<TeacherSignIn/>} />
+          <Route path = "admin-signup" element={<AdminSignIn/>} />
+          <Route path = "student-dashboard" element={<StudentDashboard/>} />
+          <Route path = "tutor-dashboard" element={<TutorDashboard/>} />
+          <Route path = "admin-dashboard" element={<AdminDashboard/>} />
+
+         
+         </Routes>
+      </Router>
     </>
   )
 }
