@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const highschoolSchema = new mongoose.Schema({
     id: {
-        type: String,
+        type: int,
         required: true,
         unique: true // id as primary key
     },
