@@ -6,6 +6,10 @@ const tutorSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    password: {
+        type: String,
+        required: true
+    },
     chapter: {
         type: String,
         required: true
