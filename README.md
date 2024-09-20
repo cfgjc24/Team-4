@@ -5,12 +5,14 @@ Create a centralized web application for First Generation Investors. They need a
 
 
 # Team Member Acknowledgements
+## Backend
 - Patricia Columbia-Walsh
 - Mahika Calyanakoti
+- Deja Dunlap
+## Frontend
 - Maya Dummett
 - Shubhi Upadhyay
 - Nikita Shinil
-- Deja Dunlap
 - Ibrahima Toure
 
 
