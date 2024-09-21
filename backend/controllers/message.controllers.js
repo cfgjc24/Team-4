@@ -7,7 +7,7 @@ export const sendMessage = async (req, res) => {
     const { sender, recipient, content } = req.body;
 
     try {
-        // Check if both sender and recipient exist in the database
+        // check if both sender and recipient exist in the database
         const senderStudent = await Student.findById(sender);
         const recipientStudent = await Student.findById(recipient);
 
