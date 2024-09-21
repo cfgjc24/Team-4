@@ -1,6 +1,6 @@
 import express from "express";
 
-import { createChapter, getChapters, updateChapter, deleteChapter, getChapter } from '../controllers/chapter.controller.js';
+import { createChapter, getChapters, updateChapter, deleteChapter, getChapter } from '../controllers/chapter.controllers.js';
 
 const router = express.Router();
 
