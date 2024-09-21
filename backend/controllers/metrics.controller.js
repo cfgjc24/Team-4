@@ -6,6 +6,7 @@ import Metrics from "../models/metrics.model.js";
 
 export const getMetrics = async (req, res) => {
     try {
+        console.log("I ran in controller")
         const metrics = await Metrics.find({});
         res.status(200).json({ success: true, data: metrics });
     } catch (error) {
