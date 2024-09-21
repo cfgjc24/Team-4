@@ -17,52 +17,51 @@ const LogInForm = () => {
     console.log('Login data submitted:', formData);
 
     // Add auth here
-
-    // Resetting form after each submission
-    // Window.href.location to individual homepages depending on user
-    // window.location.href = '/teacher-signup'
-    setFormData({ username: '', password: '' }); 
+    // window.location.href = '/teacher-signup'; // Redirect to teacher-signup page after login
+    
+    setFormData({ username: '', password: '' });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Header/>
-      <div>
-        <label>
-          Username:
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
+      <Header />
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '300px', gap: '15px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+        <div>
+          <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px' }}>
+            Username:
+          </label>
           <input
             type="text"
             name="username"
             value={formData.username}
             onChange={handleChange}
             required
+            style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
           />
-        </label>
-      </div>
-      <div>
-        <label>
-          Password:
+        </div>
+        <div>
+          <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px' }}>
+            Password:
+          </label>
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
+            style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
           />
-        </label>
-      </div>
-      <button type="submit">Login</button>
+        </div>
+        <button type="submit" style={{ padding: '10px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+          Login
+        </button>
 
-      <div>
-      <span> Forgot Password? </span>
-      </div>
-
-      <div>
-      <span> Create Account </span>
-      </div>
-
-    </form>
-   
+        <div style={{ marginTop: '15px', display: 'flex', justifyContent: 'space-between' }}>
+          <span style={{ color: '#007bff', cursor: 'pointer' }}>Forgot Password?</span>
+          <span style={{ color: '#007bff', cursor: 'pointer' }}>Create Account</span>
+        </div>
+      </form>
+    </div>
   );
 };
 
