@@ -11,13 +11,13 @@ export const checkUserType = async (req, res, next) => {
     // Check if the user is a Student
     const student = await Student.findOne({ email });
     if (student) {
-      return res.status(200).json({ userType: "student", redirect: "/students-dashboard" });
+      return res.status(200).json({ userType: "student", redirect: "/student-dashboard" });
     }
 
     // Check if the user is a Tutor
     const tutor = await Tutor.findOne({ email });
     if (tutor) {
-      return res.status(200).json({ userType: "tutor", redirect: "/tutors-dashboard" });
+      return res.status(200).json({ userType: "tutor", redirect: "/tutor-dashboard" });
     }
 
     // Check if the user is a Teacher
