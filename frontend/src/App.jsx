@@ -16,16 +16,15 @@ import AdminSignIn from './pages/AdminSignIn';
 import OfficeHours from './pages/Office'
 import './App.css';
 import './index.css';
+import PreCourseSurvey from './pages/PreCourseSurvey';
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<LogIn/>} /> 
-          {/* <Route path="/" element={<StudentSignIn/>} /> */}
-          {/* <Route path = "/tutor-home-page" element={<ButtonAppBar/>} />  */}
-
+          <Route path="/" element={<LogIn/>} />
+          <Route path="/student-precourse-survey" element={<PreCourseSurvey/>}/>
           <Route path="/create-account" element={<CreateAccount/>} />  
 
           <Route path="/student-signup" element={<StudentSignIn/>} /> 

@@ -18,7 +18,7 @@ router.get("/", getMetrics);
 router.get("/highschool_id/:highschool_id", getMetricByHS);
 
 // Route to push new metric
-router.post("/", createMetric);
+router.post("/createMetric", createMetric);
 
 // Route to get metrics by gender
 router.put("/gender/:gender", getMetricByGender);

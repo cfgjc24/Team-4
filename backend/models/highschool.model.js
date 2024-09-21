@@ -1,6 +1,18 @@
 // models/highschool.model.js
 import mongoose from "mongoose";
 
+
+const classScheduleSchema = new mongoose.Schema({
+    start: {
+        type: Date,
+        required: true
+    },
+    end: {
+        type: Date,
+        required: true
+    }
+});
+
 const highschoolSchema = new mongoose.Schema({
     hs_id: {
         type: Number,
@@ -18,7 +30,8 @@ const highschoolSchema = new mongoose.Schema({
     state: {
         type: String,
         required: true
-    }
+    },
+    classSchedule: [classScheduleSchema]
 });
 
 const HighSchool = mongoose.model("HighSchool", highschoolSchema);

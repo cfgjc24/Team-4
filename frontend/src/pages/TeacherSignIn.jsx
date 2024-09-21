@@ -12,8 +12,6 @@ function TeacherSignIn() {
             password: document.getElementById('password').value,
            
             
-
-
     };
 
 }
