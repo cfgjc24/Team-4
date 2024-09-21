@@ -1,15 +1,17 @@
 import express from "express";
 
-import { createStudent, getStudents, updateStudent, deleteStudent } from '../controllers/student.controllers.js';
+import { createStudent, getStudents, updateStudent, deleteStudent, getStudent } from '../controllers/student.controllers.js';
 
 const router = express.Router();
 
 router.get("/", getStudents);
 
-router.post("/", createStudent);
+router.get("/:email", getStudent);
 
-router.delete("/:id", deleteStudent);
+router.post("/", createStudent); // student create account
 
-router.put("/:id", updateStudent);
+router.delete("/:email", deleteStudent); // admin functionality
+
+router.put("/:email", updateStudent); // student profile
 
 export default router;
