@@ -29,7 +29,7 @@ const studentSchema = new mongoose.Schema({
     },
     race: {
         type: String,
-        enum: ['Asian', 'Black', 'Hispanic', 'White', 'Other'],
+        enum: ['Asian', 'Black', 'Hispanic', 'White', 'Native American', 'Pacific Islander', 'Other'],
         required: true
     },
     ethnicity: {
