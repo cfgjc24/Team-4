@@ -8,7 +8,7 @@ import tutorRoutes from "./routes/tutor.routes.js";
 import chapterRoutes from "./routes/chapter.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
 import highschoolRoutes from "./routes/highschool.routes.js";
-
+import userRoutes from "./routes/user.routes.js";
 
 // allows us to see environment info
 dotenv.config()
@@ -23,7 +23,7 @@ app.use("/api/tutors", tutorRoutes); // set prefix for all route methods
 app.use("/api/chapters", chapterRoutes); // set prefix for all route methods
 app.use("/api/admins", adminRoutes); // set prefix for all route methods
 app.use("/api/highschools", highschoolRoutes); // set prefix for all route methods
-
+app.use("/api/users", userRoutes);
 
 // prints message to homepage
 app.get("/", (req, res) => {
