@@ -8,8 +8,9 @@ function TeacherSignIn() {
         e.preventDefault();
         
         const formData = {
-            firstName: document.getElementById('first-name').value,
-            lastName: document.getElementById('last-name').value,
+            name: document.getElementById('first-name').value + " " + document.getElementById('last-name').value,
+            password: document.getElementById('password').value,
+           
             
 
 
