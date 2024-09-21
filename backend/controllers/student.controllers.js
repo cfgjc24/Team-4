@@ -46,7 +46,8 @@ export const createStudent = async (req, res) => {
         active,
         complete,
         w1_through_w8_attendance,
-        capstone
+        capstone,
+        availability
     } = req.body;
 
     try {
@@ -78,7 +79,8 @@ export const createStudent = async (req, res) => {
             active,
             complete,
             w1_through_w8_attendance,
-            capstone
+            capstone,
+            availability
         });
 
         // Save the student to the database

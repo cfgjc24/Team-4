@@ -11,9 +11,13 @@ export const getChapters = async (req, res) => {
     }
 };
 
-export const getChapter = async (req, res, chapter_name) => {
+export const getChapter = async (req, res) => {
+    const { name } = req.params;
     try {
-        const chapter = await Chapter.find({name: chapter_name});
+        const chapter = await Chapter.find({name: name});
+        if (!chapter) {
+            return res.status(404).json({ sucess: false, message: "Chapter not found." });
+        }
         res.status(200).json({sucess: true, data: chapters });
     } catch (error) {
         console.log("Error in fetching chapter: ", error.message);
@@ -67,11 +71,11 @@ export const deleteChapter = async (req, res) => {
 export const updateChapter = async (req, res) => {
     const { name } = req.params;
     const chapter = req.body;
-    if(!mongoose.Types.ObjectId.isValid(chapter)){
-        return res.status(404).json({success: false, message: "Invalid chapter ID"});
+    if(!mongoose.Types.ObjectId.isValid(name)){
+        return res.status(404).json({success: false, message: "Invalid chapter name"});
     }
     try {
-        const updatedChapter = await Chapter.findByIdAndUpdate(email, chapter, {new:true});
+        const updatedChapter = await Chapter.findByIdAndUpdate(name, chapter, {new:true});
         res.status(200).json({sucess:true, data: updatedChapter});
     } catch (error) {
         res.status(500).json({ success: false, message: "Server Error"});
