@@ -1,49 +1,119 @@
-import express from "express";
+import mongoose from 'mongoose';
+import Student from "../models/student.model.js";
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { createStudent, getStudents, updateStudent, deleteStudent, getStudent } from '../controllers/student.controllers.js';
-=======
-<<<<<<< HEAD
-import { createStudent, getStudents, updateStudent, deleteStudent } from '../controllers/student.controllers.js';
-=======
-import { createStudent, getStudents, updateStudent, deleteStudent, getStudent } from '../controllers/student.controllers.js';
->>>>>>> 846f8410ccf882b5c439cb8a4108f86aa460c010
->>>>>>> 14e049da0ba1c30e9ad0f7cca824a2d0e3157372
-=======
-import { createStudent, getStudents, updateStudent, deleteStudent, getStudent } from '../controllers/student.controllers.js';
->>>>>>> 986132497ed540762f71db6f4ca9897f6c0932b2
+export const getStudents = async (req, res) => {
+    try {
+        const students = await Student.find({});
+        res.status(200).json({sucess: true, data: students });
+    } catch (error) {
+        console.log("Error in fetching students: ", error.message);
+        res.status(500).json({ sucess: false, message: "Server Error"});
+    }
+};
 
-const router = express.Router();
+export const getStudent = async (req, res) => {
+    const { email } = req.params; 
+    try {
+        const student = await Student.findOne({ email });
+        if (!student) {
+            return res.status(404).json({ success: false, message: 'Student not found' });
+        }
+        res.status(200).json({ success: true, data: student });
+    } catch (error) {
+        console.log("Error in fetching student: ", error.message);
+        res.status(500).json({ success: false, message: "Server Error" });
+    }
+};
 
-router.get("/", getStudents);
+export const createStudent = async (req, res) => {
+    const {
+        email,
+        password,
+        first_name,
+        last_name,
+        start_week,
+        graduated,
+        race,
+        ethnicity,
+        gender,
+        pronouns,
+        town,
+        state,
+        high_school,
+        teacher_email,
+        date_of_birth,
+        phone_number,
+        active,
+        complete,
+        w1_through_w8_attendance,
+        capstone
+    } = req.body;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-router.post("/", createStudent);
+    try {
+        // Check if student with this email already exists
+        const existingStudent = await Student.findOne({ email });
 
-router.delete("/:id", deleteStudent);
+        if (existingStudent) {
+            return res.status(400).json({ message: "Student with this email already exists!" });
+        }
 
-router.put("/:id", updateStudent);
-=======
->>>>>>> 14e049da0ba1c30e9ad0f7cca824a2d0e3157372
-=======
->>>>>>> 986132497ed540762f71db6f4ca9897f6c0932b2
-router.get("/:email", getStudent);
+        // Create a new student instance
+        const newStudent = new Student({
+            email,
+            password,
+            first_name,
+            last_name,
+            start_week,
+            graduated,
+            race,
+            ethnicity,
+            gender,
+            pronouns,
+            town,
+            state,
+            high_school,
+            teacher_email,
+            date_of_birth,
+            phone_number,
+            active,
+            complete,
+            w1_through_w8_attendance,
+            capstone
+        });
 
-router.post("/", createStudent); // student create account
+        // Save the student to the database
+        await newStudent.save();
 
-router.delete("/:email", deleteStudent); // admin functionality
+        res.status(201).json({ message: "Student created successfully!", data: newStudent });
+    } catch (error) {
+        console.log("Error in creating student: ", error.message);
+        res.status(500).json({ message: "Server error: " + error.message });
+    }
+};
 
-router.put("/:email", updateStudent); // student profile
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 846f8410ccf882b5c439cb8a4108f86aa460c010
->>>>>>> 14e049da0ba1c30e9ad0f7cca824a2d0e3157372
-=======
->>>>>>> 986132497ed540762f71db6f4ca9897f6c0932b2
+export const deleteStudent = async (req, res) => {
+    const { email } = req.params;
+    if(!mongoose.Types.ObjectId.isValid(email)){
+        return res.status(404).json({success: false, message: "Invalid student email"});
+    }
+    try {
+        await Student.findByIdAndDelete(email);
+        res.status(200).json( { success: true, message: "successfully deleted"});
+    } catch (error) {
+        res.status(500).json( { success: false, message: "Server Error"});
+    }
+};
 
-export default router;
+export const updateStudent = async (req, res) => {
+    const { email } = req.params;
+    const student = req.body;
+    if(!mongoose.Types.ObjectId.isValid(email)){
+        return res.status(404).json({success: false, message: "Invalid student email"});
+    }
+    try {
+        const updatedStudent = await Student.findByIdAndUpdate(email, student, {new:true});
+        res.status(200).json({sucess:true, data: updatedStudent});
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Server Error"});
+    }
+};
