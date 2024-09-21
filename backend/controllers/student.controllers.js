@@ -14,7 +14,7 @@ export const getStudents = async (req, res) => {
 export const getStudent = async (req, res) => {
     const { email } = req.params; 
     try {
-        const student = await Student.findOne({ email });
+        const student = await Student.findOne({ "email": email });
         if (!student) {
             return res.status(404).json({ success: false, message: 'Student not found' });
         }
@@ -39,7 +39,7 @@ export const createStudent = async (req, res) => {
         pronouns,
         town,
         state,
-        high_school,
+        highschool_id,
         teacher_email,
         date_of_birth,
         phone_number,
@@ -51,7 +51,7 @@ export const createStudent = async (req, res) => {
 
     try {
         // Check if student with this email already exists
-        const existingStudent = await Student.findOne({ email });
+        const existingStudent = await Student.findOne({ email:email });
 
         if (existingStudent) {
             return res.status(400).json({ message: "Student with this email already exists!" });
@@ -71,7 +71,7 @@ export const createStudent = async (req, res) => {
             pronouns,
             town,
             state,
-            high_school,
+            highschool_id,
             teacher_email,
             date_of_birth,
             phone_number,
@@ -116,4 +116,4 @@ export const updateStudent = async (req, res) => {
     } catch (error) {
         res.status(500).json({ success: false, message: "Server Error"});
     }
-}
+};

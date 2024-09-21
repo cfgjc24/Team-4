@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 
 function StudentSignIn() {
+  const navigate = useNavigate();
   const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
     clipPath: 'inset(50%)',
@@ -53,7 +54,35 @@ function StudentSignIn() {
         email: document.getElementById('email').value,
         password: document.getElementById('password').value,
         };
+
+        await (sendData(formData));
     }
+
+    const sendData = async (formData) => {
+        try {
+        const response = await fetch('http://localhost:5000/student-signup', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        const data = await response.json();
+        console.log(data);
+
+        if (response.ok) {
+            
+            navigate('/student-dashboard');
+        }
+        else {
+            console.error(response.statusText);
+        }
+    } catch (error) {
+        console.log("Error in trying to submit form data");
+        console.log(error);
+        };
+
+    };
   
 
   return (
