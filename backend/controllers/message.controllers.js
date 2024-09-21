@@ -1,3 +1,4 @@
+//didnt have time to build out
 import Message from "../models/message.model.js";
 import Student from "../models/student.model.js";
 
@@ -40,7 +41,7 @@ export const getMessagesForUser = async (req, res) => {
                 { sender: studentId },
                 { recipient: studentId }
             ]
-        }).populate('sender recipient', 'email first_name last_name');
+        }).populate('sender recipient', 'email');
 
         res.status(200).json({ success: true, data: messages });
     } catch (error) {
