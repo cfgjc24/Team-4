@@ -51,8 +51,9 @@ const studentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'HighSchool' // Reference to HighSchool model
     },
-    teacher_email: {
-        type: String
+    high_school: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Teacher' // Reference to HighSchool model
     },
     date_of_birth: {
         type: Date
