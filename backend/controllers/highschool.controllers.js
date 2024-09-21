@@ -40,7 +40,7 @@ export const createHighSchool = async (req, res) => {
         // Save the student to the database
         await newHighSchool.save();
 
-        res.status(201).json({ message: "HighSchool created successfully!", data: newStudent });
+        res.status(201).json({ message: "HighSchool created successfully!", data: newHighSchool });
     } catch (error) {
         console.log("Error in creating highschool: ", error.message);
         res.status(500).json({ message: "Server error: " + error.message });
