@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/header';
 import { FormControl, TextField, Box, Button, Select, MenuItem, InputLabel, IconButton } from '@mui/material';
-import Typography from '@mui/material';
+import Typography from '@mui/material/Typography';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/system';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
@@ -10,9 +10,6 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Add, Delete } from '@mui/icons-material';
 import dayjs from 'dayjs';
 import { useState } from 'react';
-
-
-
 
 
 function TutorSignIn() {
@@ -72,7 +69,7 @@ function TutorSignIn() {
         // Handle form submission logic
       };
     return (
-        <div>
+        <div style={{ minHeight: '100vh', padding: '50px'}}>
           <Header />
           <Typography variant='h3' marginBottom={2}> Tutor Sign Up </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
