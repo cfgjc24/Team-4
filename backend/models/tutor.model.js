@@ -26,11 +26,13 @@ const tutorSchema = new mongoose.Schema({
     },
     race: {
         type: String,
+        enum: ['Asian', 'Black', 'Hispanic', 'White', 'Other'],
         required: true
     },
     ethnicity: {
         type: String,
-        required: true
+        enum: ['Non-Hispanic', 'Hispanic', 'Unknown'],
+        required: true 
     },
     gender: {
         type: String,
