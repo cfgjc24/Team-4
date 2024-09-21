@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const studentSchema = new mongoose.Schema({
     email: {
         type: String,
-        required: true,
+        required: true, //primary key
         unique: true
     },
     password: {
@@ -55,8 +55,8 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    high_school: {
-        type: mongoose.Schema.Types.ObjectId,
+    highschool_id: {
+        type: int,
         ref: 'HighSchool', // Reference to HighSchool model
         required: true
     },
