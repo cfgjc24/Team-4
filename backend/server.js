@@ -2,10 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from './config/db.js';
 import cors from 'cors';
-
 import studentRoutes from "./routes/student.routes.js";
 import metricRoutes from './routes/metrics.routes.js';  // Make sure this path is correct
-import cors from 'cors';
 import teacherRoutes from "./routes/teacher.routes.js";
 import tutorRoutes from "./routes/tutor.routes.js";
 import chapterRoutes from "./routes/chapter.routes.js";
