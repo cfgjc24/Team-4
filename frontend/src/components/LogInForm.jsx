@@ -18,7 +18,7 @@ const LogInForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login data submitted:', formData);
-    navigate("/student-dashboard")
+    navigate("/create-account")
 
     // Add auth here
     // window.location.href = '/teacher-signup'; // Redirect to teacher-signup page after login
