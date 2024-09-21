@@ -10,7 +10,7 @@ function TeacherSignIn() {
         const formData = {
             name: document.getElementById('first-name').value + " " + document.getElementById('last-name').value,
             password: document.getElementById('password').value,
-           
+
             
     };
 

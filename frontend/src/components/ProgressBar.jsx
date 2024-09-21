@@ -21,6 +21,7 @@ function ProgressRing() {
         size={100} // Size of the ring
         thickness={5} // Thickness of the ring
         color="primary" // Customize the color
+
       />
       <Box
         sx={{

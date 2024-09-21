@@ -1,10 +1,13 @@
 import React from 'react';
-import { Box, Typography, Button, Grid } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import CheckIcon from '@mui/icons-material/Check';
 import { green } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import ProgressBar from '../components/ProgressBar';
 import Footer from './Footer';
+
+
 
 const HoverableCheckIcon = styled(CheckIcon)(({ theme }) => ({
   color: green[500],
@@ -31,6 +34,7 @@ const WeekProgressTable = () => {
       <Typography variant="h4" gutterBottom sx={{ color: '#E1E8ED' }}>
         {/* Progress Tracker */}
       </Typography>
+    
       <ProgressBar />
       {/* Subheading */}
       <Typography variant="subtitle1" sx={{ fontSize: '16px', marginBottom: '30px', color: '#A7C7E7' }}>
@@ -45,6 +49,7 @@ const WeekProgressTable = () => {
                 border: '2px solid rgba(255, 255, 255, 0.3)',
                 padding: '20px',
                 borderRadius: '8px',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 backgroundColor: index % 2 === 0 ? '#1F4E79' : '#2A6EBB',
                 display: 'flex',
                 flexDirection: 'column',
@@ -53,6 +58,7 @@ const WeekProgressTable = () => {
                 height: '120px',
               }}
             >
+              <Typography variant="h6">{week.week}</Typography>
               <Typography variant="h6" sx={{ color: '#F1F7FD' }}>{week.week}</Typography>
               {week.completed ? <HoverableCheckIcon /> : null}
             </Box>
@@ -64,17 +70,21 @@ const WeekProgressTable = () => {
         <Typography variant="h6" sx={{ color: '#F1F7FD' }}>
           If you have concerns about attendance, click here:
         </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          sx={{ marginTop: '10px', backgroundColor: '#99B1BD' }} // Light blue color
+        <Button 
+          variant="contained" 
+          color="primary" 
+          sx={{ marginTop: '10px', backgroundColor: '#99b1bd' }} // Light blue color
           onClick={() => window.location.href = 'mailto:your-email@example.com'}
         >
           Contact
         </Button>
+    
+
+       
     <Box>
        {/* Horizontal Line */}
        <hr style={{ width: '100%', margin: '0 auto', borderColor: 'rgba(255, 255, 255, 0.3)' }} /> {/* Added line between button and footer */}
+
 {/* Footer Component */}
 <Footer />
     </Box>

@@ -11,8 +11,10 @@ import {
 
 const router = express.Router();
 
+console.log(router)
+
 // Route to get all metrics
-router.get("/", getMetrics);
+router.get("/getMetrics", getMetrics);
 
 // Route to get metrics by highschool_id
 router.get("/highschool_id/:highschool_id", getMetricByHS);

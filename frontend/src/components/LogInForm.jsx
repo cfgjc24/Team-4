@@ -91,6 +91,7 @@ const LogInForm = () => {
             onChange={handleChange}
             required
             style={{ width: '75%', padding: '10px', borderRadius: '10px', border: '1px solid #ccc' }}
+
           />
         </div>
         <div>
@@ -104,6 +105,7 @@ const LogInForm = () => {
             onChange={handleChange}
             required
             style={{ width: '75%', padding: '10px', borderRadius: '10px', border: '1px solid #ccc' }}
+
           />
         </div>
         <button type="submit" style={{ padding: '10px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
