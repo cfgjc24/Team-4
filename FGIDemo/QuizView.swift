@@ -4,7 +4,6 @@
 //
 //  Created by Ibrahima Toure on 9/21/24.
 //
-
 import SwiftUI
 
 struct QuizView: View {
@@ -15,11 +14,11 @@ struct QuizView: View {
     @State private var showScore = false
     @State private var alertTitle = ""
     @State private var userScore = 0
-    @State private var timeRemaining = 10 
+    @State private var timeRemaining = 15
     @State private var timerRunning = true
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -91,6 +90,12 @@ struct QuizView: View {
                 Text("The correct answer was: \(questions[currentQuestionIndex].options[correctAnswer])")
             }
         }
+        .onAppear {
+            startTimer()
+        }
+        .onDisappear {
+            stopTimer()
+        }
     }
 
     // HandleTapGestures
@@ -119,6 +124,15 @@ struct QuizView: View {
         correctAnswer = Int.random(in: 0...3)
         timeRemaining = 10
         timerRunning = true
+    }
+
+    // Start and stop the timer when view appears or disappears
+    func startTimer() {
+        timerRunning = true
+    }
+    
+    func stopTimer() {
+        timerRunning = false
     }
 }
 
