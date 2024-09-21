@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 5001;
 app.use(express.json()); // middle layer that allows us to parse json data in body
 
 app.use("/api/students", studentRoutes); // set prefix for all route methods
+app.use("/api/teachers", studentRoutes); // set prefix for all route methods
+app.use("/api/tutors", studentRoutes); // set prefix for all route methods
+app.use("/api/chapters", studentRoutes); // set prefix for all route methods
+app.use("/api/admin", studentRoutes); // set prefix for all route methods
 
 // prints message to homepage
 app.get("/", (req, res) => {
