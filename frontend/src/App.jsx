@@ -13,15 +13,22 @@ import WeekProgressTable from './components/WeekProgressTable';
 import Attendance from './pages/Attendance';
 import TeacherSignIn from './pages/TeacherSignIn';
 import AdminSignIn from './pages/AdminSignIn';
+import OfficeHours from './pages/Office'
+import Slides from './pages/Slides'
+import Quiz from './pages/Quiz'
 import './App.css';
 import './index.css';
 import PreCourseSurvey from './pages/PreCourseSurvey';
+
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
+          <Route path="/" element={<LogIn/>} /> 
+          {/* <Route path="/" element={<StudentSignIn/>} /> */}
+          {/* <Route path = "/tutor-home-page" element={<ButtonAppBar/>} />  */}
           <Route path="/student-precourse-survey" element={<PreCourseSurvey/>}/>
           {/* <Route path="/" element={<StudentSignIn/>} /> */}
           {/*<Route path="/" element={<CreateAccount/>} />   */} 
@@ -45,7 +52,11 @@ function App() {
           <Route path = "/tutor-dashboard" element={<TutorDashboard/>} /> 
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/course-materials" element={<CourseMaterials />} />
+          <Route path="/office-hours" element={<OfficeHours/>} />
           <Route path="/attendance" element={<Attendance />} />
+          <Route path="/slides" element={<Slides />} />
+          <Route path="/quiz" element={<Quiz />} />
+
         </Routes>
       </Router>
     </>

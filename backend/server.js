@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from './config/db.js';
+import cors from 'cors';
 
 import studentRoutes from "./routes/student.routes.js";
 import metricRoutes from './routes/metrics.routes.js';  // Make sure this path is correct
@@ -16,6 +17,9 @@ import userRoutes from "./routes/user.routes.js";
 dotenv.config()
 const app = express();
 const PORT = process.env.PORT || 5001;
+
+//enable cors for all routes
+app.use(cors());
 
 app.use(express.json()); // middle layer that allows us to parse json data in body
 app.use(cors());  // Enable CORS for all routes

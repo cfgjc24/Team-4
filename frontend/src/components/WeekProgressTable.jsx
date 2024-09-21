@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import ProgressBar from '../components/ProgressBar';
 import Footer from './Footer';
 
+
 // Styled component for the hover effect on the check mark
 const HoverableCheckIcon = styled(CheckIcon)(({ theme }) => ({
   color: green[500],
@@ -29,6 +30,7 @@ const WeekProgressTable = () => {
   ];
 
   return (
+
     <Box sx={{ textAlign: 'center', color: 'white', backgroundColor: '#041d5e', padding: '30px', minHeight: '100vh' }}>
       {/* Main heading */}
       <Typography variant="h4" gutterBottom sx={{ color: '#E1E8ED' }}>
@@ -50,7 +52,9 @@ const WeekProgressTable = () => {
                 border: '2px solid rgba(255, 255, 255, 0.3)',
                 padding: '20px',
                 borderRadius: '8px',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 backgroundColor: index % 2 === 0 ? '#1F4E79' : '#2A6EBB',
+
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -58,6 +62,7 @@ const WeekProgressTable = () => {
                 height: '120px',
               }}
             >
+              <Typography variant="h6">{week.week}</Typography>
               <Typography variant="h6" sx={{ color: '#F1F7FD' }}>{week.week}</Typography>
               {week.completed ? <HoverableCheckIcon /> : null}
             </Box>
@@ -67,12 +72,15 @@ const WeekProgressTable = () => {
       
       {/* Attendance concern text */}
       <Box sx={{ marginTop: '40px', textAlign: 'center' }}>
+        <Typography variant="h6">
         <Typography variant="h6" sx={{ color: '#F1F7FD' }}>
+
           If you have concerns about attendance, click here:
         </Typography>
         <Button 
           variant="contained" 
           color="primary" 
+          sx={{ marginTop: '10px' }}
           sx={{ marginTop: '10px', backgroundColor: '#99b1bd' }} // Light blue color
           onClick={() => window.location.href = 'mailto:your-email@example.com'}
         >

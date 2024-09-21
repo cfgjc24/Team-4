@@ -33,6 +33,16 @@ function TutorSignIn() {
         'WI', 'WY'
       ];
 
+      const pronouns = ['He/Him', 'She/Her', 'They/Them', 'Other'];
+      const genders =  ['Male', 'Female', 'Non-Binary', 'Other'];
+      const races = ["White", "Black", "Hispanic", "Asian", "Native American", "Pacific Islander", "Other"];
+      const ethnicities = ["Non-Hispanic", "Hispanic", "Unknown"];
+
+      const [pronoun, setPronoun] = useState('');
+      const [state, setState] = React.useState('');
+      const [gender, setGender] = React.useState('');
+      const [ethnicity, setEthnicity] = React.useState('');
+      const[race, setRace] = React.useState('');
       const [availability, setAvailability] = useState ([{ start: dayjs(), end: dayjs().add(1, 'hour') }]);
 
       const handleAdd = () => {  setAvailability([...availability, { start: dayjs(), end: dayjs().add(1, 'hour') }]); };
@@ -48,10 +58,23 @@ function TutorSignIn() {
             const newAvailability = availability.filter((slot, i) => i !== index);
             setAvailability(newAvailability);
         };
-    
-    
-    
-      const [state, setState] = React.useState('');
+        const handlePronounsChange = (event) => {
+          setPronoun(event.target.value);
+          };
+      
+          const handleGenderChange = (event) => {
+          setGender(event.target.value);
+         
+          };
+
+        
+      const handleEthnicityChange = (event) => {
+        setEthnicity(event.target.value);
+        };
+      const handleRaceChange = (event) => {
+        setRace(event.target.value);
+      };
+
       const fileInputRef = React.useRef(null);
     
       const handleStateChange = (event) => {
@@ -66,22 +89,41 @@ function TutorSignIn() {
         event.preventDefault();
         
         const formData = {
-            firstName: document.getElementById('first-name').value,
-            lastName: document.getElementById('last-name').value,
-            race: document.getElementById('race').value,
-            ethnicity: document.getElementById('ethnicity').value,
-            age: document.getElementById('age').value,
-            state: state,
-            city: document.getElementById('city').value,
-            highSchool: document.getElementById('high-school').value,
-            email: document.getElementById('email').value,
+            name: document.getElementById('first-name').value + " " + document.getElementById('last-name').value,
             password: document.getElementById('password').value,
+            chapter: 'chapter',
+            highschool_id: '66ee44fd633444e0a93bc552',
+            email: document.getElementById('email').value,
+            race: race,
+            ethnicity: ethnicity,
+            gender: gender,
+            pronouns: pronoun,     
             availability: availability.map((slot) => ({
                 start: slot.start.toISOString(),
                 end: slot.end.toISOString(),
-
             })),
-            };
+        };
+
+        await sendData(formData);
+      };
+          
+          
+            const sendData = async (formData) => {
+
+              const response = await fetch('/api/tutors/createTutor', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+              });
+          
+              if (response.ok) {
+                alert('Tutor created successfully!');
+              } else {
+                alert('Failed to create tutor!');
+                console.error(response);
+              };
        
       };
     return (
@@ -117,28 +159,91 @@ function TutorSignIn() {
             
             <Box sx={{ display: 'flex', gap: 2 }}>
               <FormControl fullWidth>
-                <TextField
-                  required
-                  id="race"
-                  label="Race"
-                  variant="outlined"
-                  sx = {{
+            <InputLabel id= "race-label">Race</InputLabel>
+            <Select
+                required
+                labelId="race-label"
+                id="race"
+                value={race}
+                onChange={handleRaceChange}
+                label="Race"
+                variant="outlined"
+                sx = {{
                     backgroundColor: 'white',
-                  }}
-                />
-              </FormControl>
-              <FormControl fullWidth>
-                <TextField
-                  required
-                  id="ethnicity"
-                  label="Ethnicity"
-                  variant="outlined"
-                  sx = {{
+                }}
+                >
+                    {races.map((race) => (
+                        <MenuItem key = {race} value={race}>
+                            {race}
+                        </MenuItem>
+                    ))}
+                </Select>
+          </FormControl>
+          <FormControl fullWidth>
+            <InputLabel id="ethnicity-label"> Ethnicity</InputLabel>
+            <Select 
+                required
+                labelId="ethnicity-label"
+                id = "ethnicity"
+                value={ethnicity}
+                onChange={handleEthnicityChange}
+                label="Ethnicity"
+                sx = {{
                     backgroundColor: 'white',
-                  }}
-                />
-              </FormControl>
+                }}
+                >
+                    {ethnicities.map((ethnicity) => (
+                        <MenuItem key = {ethnicity} value = {ethnicity}>
+                            {ethnicity}
+                        </MenuItem>
+                    ))}
+                </Select>
+          </FormControl>
             </Box>
+            <Box sx={{ display: 'flex', gap: 2 }}>
+            <FormControl fullWidth>
+                <InputLabel id="pronoun-label">Pronouns</InputLabel>
+                <Select
+                    required
+                    labelId="pronoun-label"
+                    id="pronoun"
+                    value={pronoun}
+                    onChange={handlePronounsChange}
+                    label="Pronouns"
+                    sx = {{
+                        backgroundColor: 'white',
+                    }}
+                    >
+                        {pronouns.map((pronoun) => (
+                            <MenuItem key = {pronoun} value={pronoun}>
+                                {pronoun}
+                            </MenuItem>
+                        ))}
+                    </Select>
+            </FormControl>
+            <FormControl fullWidth>
+                <InputLabel id="gender-label">Gender</InputLabel>
+                <Select
+                    required
+                    labelId = "gender-label"
+                    id="gender"
+                    value={gender}
+                    onChange={handleGenderChange}
+                    label="Gender"
+                    sx = {{
+                        backgroundColor: 'white',
+                    }}
+                >
+                    {genders.map((pronoun) => (
+                        <MenuItem key = {pronoun} value={pronoun}>
+                            {pronoun}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+
+        </Box>
+
     
             <Box sx={{ display: 'flex', gap: 2 }}>
               <FormControl fullWidth>

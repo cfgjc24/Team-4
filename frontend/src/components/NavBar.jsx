@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
   return (
@@ -16,10 +18,23 @@ const Navbar = () => {
         <Typography variant="h6" style={{ flexGrow: 1 }}>
         </Typography>
         {/* <Button color="inherit">Training</Button> */}
-        <Button color="inherit">Office Hours</Button>
-        <Button color="inherit">Attendance</Button>
-        <Button color="inherit">Modules</Button>
-        <Button color="inherit">Contact</Button>
+        <Link to="/office-hours">
+        <Button style={{ color: 'white' }}color="inherit">Office Hours</Button>
+        </Link>
+
+        <Link to="/attendance">
+        <Button style={{ color: 'white' }}> Attendance</Button>
+        </Link>
+
+        <Link to="/course-materials">
+        <Button style={{ color: 'white' }}> Modules</Button>
+        </Link>
+
+        <Button color="inherit" onClick={() => window.location.href = 'mailto:your-email@example.com'}
+      >
+        Contact
+      </Button>
+
       </Toolbar>
     </AppBar>
   );
