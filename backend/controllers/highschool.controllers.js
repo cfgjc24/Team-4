@@ -15,7 +15,7 @@ export const getHighSchools = async (req, res) => {
 // Create a new highschool
 export const createHighSchool = async (req, res) => {
     const {
-        id,
+        hs_id,
         name,
         city,
         state
@@ -23,7 +23,7 @@ export const createHighSchool = async (req, res) => {
 
     try {
         // Check if highschool with this email already exists
-        const existingHighSchool = await HighSchool.findOne({ id });
+        const existingHighSchool = await HighSchool.findOne({ hs_id });
 
         if (existingHighSchool) {
             return res.status(400).json({ message: "HighSchool with this ID already exists!" });
@@ -31,7 +31,7 @@ export const createHighSchool = async (req, res) => {
 
         // Create a new student instance
         const newHighSchool = new HighSchool({
-            id,
+            hs_id,
             name,
             city,
             state
@@ -49,15 +49,15 @@ export const createHighSchool = async (req, res) => {
 
 // Delete a highschool by ID
 export const deleteHighSchool = async (req, res) => {
-    const { id } = req.params;
+    const { hs_id } = req.params;
 
     // Validate the ID
-    if (!mongoose.Types.ObjectId.isValid(id)) {
+    if (!mongoose.Types.ObjectId.isValid(hs_id)) {
         return res.status(404).json({ success: false, message: "Invalid highschool ID" });
     }
 
     try {
-        await HighSchool.findByIdAndDelete(id);
+        await HighSchool.findByIdAndDelete(hs_id);
         res.status(200).json({ success: true, message: "Successfully deleted" });
     } catch (error) {
         console.error("Error in Delete HighSchool: ", error.message);
@@ -67,17 +67,17 @@ export const deleteHighSchool = async (req, res) => {
 
 // Update a highschool by ID
 export const updateHighSchool = async (req, res) => {
-    const { id } = req.params;
+    const { hs_id } = req.params;
     const highschool = req.body;
 
     // Validate the ID
-    if (!mongoose.Types.ObjectId.isValid(id)) {
+    if (!mongoose.Types.ObjectId.isValid(hs_id)) {
         return res.status(404).json({ success: false, message: "Invalid highschool ID" });
     }
 
     try {
         // Update highschool and return the updated document
-        const updatedHighSchool = await HighSchool.findByIdAndUpdate(id, highschool, { new: true });
+        const updatedHighSchool = await HighSchool.findByIdAndUpdate(hs_id, highschool, { new: true });
 
         if (!updatedHighSchool) {
             return res.status(404).json({ success: false, message: "HighSchool not found" });
