@@ -18,6 +18,7 @@ const LogInForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Login data submitted:', formData);
+
     try {
       const response = await fetch('http://localhost:5001/api/users/checkUserType', {
         method: 'POST',
@@ -63,6 +64,9 @@ const LogInForm = () => {
     }
   
     
+=======
+    navigate("/create-account")
+
 
     // Add auth here
     // window.location.href = '/teacher-signup'; // Redirect to teacher-signup page after login

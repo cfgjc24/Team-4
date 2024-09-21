@@ -2,6 +2,7 @@ import React from 'react';
 // import Header from './header';
 import { Box, Typography } from '@mui/material';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import Navbar from '../components/NavBar';
 
 const lessons = [
     { title: "Lesson 1: Personal Finance", link: "https://sites.google.com/view/fgistudent/curriculum/1-personal-finance?authuser=0" },
@@ -19,6 +20,7 @@ function CourseMaterials() {
     return (
         <div>
             {/* <Header /> */}
+            <Navbar></Navbar>
             <h1>Course Materials</h1>
             <div className="grid-container">
                 {lessons.map((lesson, index) => (

@@ -13,6 +13,7 @@ import WeekProgressTable from './components/WeekProgressTable';
 import Attendance from './pages/Attendance';
 import TeacherSignIn from './pages/TeacherSignIn';
 import AdminSignIn from './pages/AdminSignIn';
+import OfficeHours from './pages/Office'
 import './App.css';
 import './index.css';
 import PreCourseSurvey from './pages/PreCourseSurvey';
@@ -34,6 +35,7 @@ function App() {
           <Route path = "/tutor-dashboard" element={<TutorDashboard/>} /> 
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/course-materials" element={<CourseMaterials />} />
+          <Route path="/office-hours" element={<OfficeHours/>} />
           <Route path="/attendance" element={<Attendance />} />
         </Routes>
       </Router>
