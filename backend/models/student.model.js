@@ -56,13 +56,14 @@ const studentSchema = new mongoose.Schema({
         required: true
     },
     highschool_id: {
-        type: int,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'HighSchool', // Reference to HighSchool model
         required: true
     },
     teacher_email: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "Teacher"
     },
     date_of_birth: {
         type: Date,
@@ -91,6 +92,10 @@ const studentSchema = new mongoose.Schema({
     capstone: {
         type: Boolean,
         default: false,
+        required: true
+    }, 
+    availability: {
+        type: String,
         required: true
     }
 }, {

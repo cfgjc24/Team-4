@@ -7,11 +7,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import Navbar from './components/Navbar';
 
-export default function Header() {
+export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" sx={{ width: '100%', bgcolor: '#67B0E8' }}>
+      <Navbar />
         <Toolbar>
           <IconButton
             size="large"
