@@ -4,6 +4,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import { green } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import ProgressBar from '../components/ProgressBar';
+import Footer from './Footer';
 
 // Styled component for the hover effect on the check mark
 const HoverableCheckIcon = styled(CheckIcon)(({ theme }) => ({
@@ -71,12 +72,21 @@ const WeekProgressTable = () => {
         </Typography>
         <Button 
           variant="contained" 
-          color="secondary" 
-          sx={{ marginTop: '10px', backgroundColor: '#FF6B6B' }}
+          color="primary" 
+          sx={{ marginTop: '10px', backgroundColor: '#99b1bd' }} // Light blue color
           onClick={() => window.location.href = 'mailto:your-email@example.com'}
         >
           Contact
         </Button>
+
+       
+    <Box>
+       {/* Horizontal Line */}
+       <hr style={{ width: '100%', margin: '0 auto', borderColor: 'rgba(255, 255, 255, 0.3)' }} /> {/* Added line between button and footer */}
+
+{/* Footer Component */}
+<Footer />
+    </Box>
       </Box>
     </Box>
   );
