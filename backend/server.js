@@ -10,18 +10,6 @@ import adminRoutes from "./routes/admin.routes.js";
 import highschoolRoutes from "./routes/highschool.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
-// fake bday verification Endpoint
-app.post('/api/verify-birthday', (req, res) => {
-    const { birthday } = req.body;
-    
-    //delay for "verification"
-    setTimeout(() => {
-        // return success response for fake verification
-        res.json({ success: true, message: 'Birthday verified successfully!' });
-    }, 1000); // 1-second delay to simulate processing
-});
-
-
 // allows us to see environment info
 dotenv.config()
 const app = express();
@@ -37,6 +25,11 @@ app.use("/api/admins", adminRoutes); // set prefix for all route methods
 app.use("/api/highschools", highschoolRoutes); // set prefix for all route methods
 app.use("/api/users", userRoutes);
 
+// prints message to homepage
+app.get("/", (req, res) => {
+    res.send("server is ready to go");
+});
+
 app.post('/api/verify-birthday', (req, res) => {
     const { birthday } = req.body;
     
@@ -47,12 +40,8 @@ app.post('/api/verify-birthday', (req, res) => {
     }, 1000); // 1-second delay to fake processing
 });
 
-// prints message to homepage
-app.get("/", (req, res) => {
-    res.send("server is ready to go");
-});
-
 app.listen(PORT, () => {
     connectDB();
     console.log("server started at http://localhost:" + PORT);
 });
+
