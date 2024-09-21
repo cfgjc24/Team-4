@@ -8,7 +8,7 @@ const chapterSchema = new mongoose.Schema({
         unique: true // name as primary key
     },
     highschool_ids: [{
-        type: [int],
+        type: [mongoose.Schema.Types.ObjectId],
         ref: "HighSchool" // ref to the HighSchool collection
     }]
 });
