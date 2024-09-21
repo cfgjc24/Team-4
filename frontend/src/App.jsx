@@ -17,6 +17,7 @@ import OfficeHours from './pages/Office'
 import './App.css';
 import './index.css';
 import PreCourseSurvey from './pages/PreCourseSurvey';
+import ClassSchedule from './components/ClassSchedule';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/course-materials" element={<CourseMaterials />} />
           <Route path="/office-hours" element={<OfficeHours/>} />
           <Route path="/attendance" element={<Attendance />} />
+          <Route path="class-schedule" element={<ClassSchedule/>} />
         </Routes>
       </Router>
     </>

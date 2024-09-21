@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from './Header';
+import Header from './header';
 import { useNavigate, Link } from 'react-router-dom';
 
 
@@ -64,7 +64,6 @@ const LogInForm = () => {
     }
   
     
-=======
     navigate("/create-account")
 
 
