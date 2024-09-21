@@ -1,6 +1,7 @@
 import Header from '../components/header';
 import Avatar from '../components/Avatar';
 
+
 function CreateAccount() {
     return (
         <div>
