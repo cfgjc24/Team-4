@@ -56,7 +56,7 @@ const studentSchema = new mongoose.Schema({
         required: true
     },
     highschool_id: {
-        type: int,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'HighSchool', // Reference to HighSchool model
         required: true
     },
