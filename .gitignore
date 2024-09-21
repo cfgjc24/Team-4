@@ -11,4 +11,4 @@ yarn-error.log*
 
 # Build outputs
 dist/
-build/
+build/node_modules/
