@@ -1,8 +1,10 @@
 import express from "express";
 
-import { createHighSchool, getHighSchool, updateHighSchool, deleteHighSchool } from '../controllers/teacher.controllers.js';
+import { createHighSchool, getHighSchool, getHighSchools, updateHighSchool, deleteHighSchool } from '../controllers/teacher.controllers.js';
 
 const router = express.Router();
+
+router.get("/", getHighSchools);
 
 router.get("/:id", getHighSchool);
 
