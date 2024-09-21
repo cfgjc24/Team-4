@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 import Metrics from "../models/metrics.model.js";
 
+//const Metrics = require('../models/metrics.model.js')
+
+
 export const getMetrics = async (req, res) => {
     try {
         const metrics = await Metrics.find({});
@@ -57,6 +60,7 @@ export const getMetricByGender = async (req, res) => {
 
 // Rename this function to avoid conflict with the Metrics model
 export const createMetric = async (req, res) => {
+    console.log(req)
     const {
         surveytype,
         student,
@@ -86,11 +90,11 @@ export const createMetric = async (req, res) => {
     } = req.body;
 
     try {
-        const existingMetric = await Metrics.findOne({ student, surveytype });
+        //const existingMetric = await Metrics.findOne({ 'student' : student, 'surveytype': surveytype });
 
-        if (existingMetric) {
-            return res.status(400).json({ message: "Metrics with this user information already exist" });
-        }
+        // if (existingMetric) {
+        //     return res.status(400).json({ message: "Metrics with this user information already exist" });
+        // }
 
         const newMetric = new Metrics({
             surveytype,
@@ -119,6 +123,8 @@ export const createMetric = async (req, res) => {
             question21,
             question22
         });
+
+        console.log(newMetric)
 
         await newMetric.save();
         res.status(201).json({ message: "Metric successfully saved to database", data: newMetric });
