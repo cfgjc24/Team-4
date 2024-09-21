@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+//import bcrypt from 'bcrypt';
 
 const studentSchema = new mongoose.Schema({
     email: {
@@ -106,6 +107,18 @@ const studentSchema = new mongoose.Schema({
 function arrayLimit(val) {
     return val.length <= 8;
 }
+
+/**
+ * studentSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) return next();
+    this.password = await bcrypt.hash(this.password, 12);
+    next();
+});
+
+studentSchema.methods.correctPassword = async function (candidatePassword, userPassword) {
+    return await bcrypt.compare(candidatePassword, userPassword);
+};
+ */
 
 const Student = mongoose.model('Student', studentSchema);
 
