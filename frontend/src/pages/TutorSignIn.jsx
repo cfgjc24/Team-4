@@ -99,6 +99,9 @@ function TutorSignIn() {
                   id="first-name"
                   label="First Name"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -107,6 +110,9 @@ function TutorSignIn() {
                   id="last-name"
                   label="Last Name"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -118,6 +124,9 @@ function TutorSignIn() {
                   id="race"
                   label="Race"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -126,6 +135,9 @@ function TutorSignIn() {
                   id="ethnicity"
                   label="Ethnicity"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -138,6 +150,9 @@ function TutorSignIn() {
                   label="Age"
                   type="number"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -150,6 +165,9 @@ function TutorSignIn() {
                   onChange={handleStateChange}
                   label="State"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 >
                   {states.map((state) => (
                     <MenuItem key={state} value={state}>
@@ -167,6 +185,9 @@ function TutorSignIn() {
                   id="city"
                   label="City"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -175,6 +196,9 @@ function TutorSignIn() {
                   id="university"
                   label="University"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -187,6 +211,9 @@ function TutorSignIn() {
                   label="Email"
                   type="email"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -196,6 +223,9 @@ function TutorSignIn() {
                   label="Password"
                   type="password"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -208,6 +238,9 @@ function TutorSignIn() {
                   label="Email"
                   type="email"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -217,6 +250,9 @@ function TutorSignIn() {
                   label="Password"
                   type="password"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -227,7 +263,7 @@ function TutorSignIn() {
       <Box>
         {availability.map((slot, index) => (
           <Box key={index} display="flex" alignItems="center" mb={2}>
-            <Box flex={1} mr={1}>
+            <Box flex={1} mr={1} sx = {{backgroundColor: 'white'}}>
               <DateTimePicker
                 label="Start Time"
                 value={slot.start}
@@ -235,7 +271,7 @@ function TutorSignIn() {
                 renderInput={(props) => <TextField {...props} fullWidth />}
               />
             </Box>
-            <Box flex={1} mr={1}>
+            <Box flex={1} mr={1} sx = {{backgroundColor: 'white'}}>
               <DateTimePicker
                 label="End Time"
                 value={slot.end}
@@ -243,7 +279,9 @@ function TutorSignIn() {
                 renderInput={(props) => <TextField {...props} fullWidth />}
               />
             </Box>
-            <IconButton color="error" onClick={() => handleDelete(index)}>
+            <IconButton color="error" onClick={() => handleDelete(index)} sx = {{ '&:hover': {
+      backgroundColor: 'rgba(255, 0, 0, 0.1)',  color: 'darkred',  
+    },}}>
               <Delete />
             </IconButton>
           </Box>

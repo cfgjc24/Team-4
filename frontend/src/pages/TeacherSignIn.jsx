@@ -44,6 +44,9 @@ function TeacherSignIn() {
                   id="first-name"
                   label="First Name"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -52,6 +55,9 @@ function TeacherSignIn() {
                   id="last-name"
                   label="Last Name"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -68,6 +74,9 @@ function TeacherSignIn() {
                   onChange={handleStateChange}
                   label="State"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 >
                   {states.map((state) => (
                     <MenuItem key={state} value={state}>
@@ -82,6 +91,9 @@ function TeacherSignIn() {
                   id="city"
                   label="City"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -94,6 +106,9 @@ function TeacherSignIn() {
                   id="high-school"
                   label="School Affiliation"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -103,6 +118,9 @@ function TeacherSignIn() {
                   label="Email"
                   type="email"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -116,6 +134,9 @@ function TeacherSignIn() {
                   label="Password"
                   type="password"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>

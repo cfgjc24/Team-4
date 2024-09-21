@@ -69,6 +69,9 @@ function StudentSignIn() {
               id="first-name"
               label="First Name"
               variant="outlined"
+              sx = {{
+                backgroundColor: 'white',
+              }}
             />
           </FormControl>
           <FormControl fullWidth>
@@ -77,6 +80,9 @@ function StudentSignIn() {
               id="last-name"
               label="Last Name"
               variant="outlined"
+              sx = {{
+                backgroundColor: 'white',
+              }}
             />
           </FormControl>
         </Box>
@@ -88,6 +94,9 @@ function StudentSignIn() {
               id="race"
               label="Race"
               variant="outlined"
+              sx = {{
+                backgroundColor: 'white',
+              }}
             />
           </FormControl>
           <FormControl fullWidth>
@@ -96,6 +105,9 @@ function StudentSignIn() {
               id="ethnicity"
               label="Ethnicity"
               variant="outlined"
+              sx = {{
+                backgroundColor: 'white',
+              }}
             />
           </FormControl>
         </Box>
@@ -108,6 +120,9 @@ function StudentSignIn() {
               label="Age"
               type="number"
               variant="outlined"
+              sx = {{
+                backgroundColor: 'white',
+              }}
             />
           </FormControl>
           <FormControl fullWidth>
@@ -120,6 +135,9 @@ function StudentSignIn() {
               onChange={handleStateChange}
               label="State"
               variant="outlined"
+              sx = {{
+                backgroundColor: 'white',
+              }}
             >
               {states.map((state) => (
                 <MenuItem key={state} value={state}>
@@ -137,6 +155,9 @@ function StudentSignIn() {
               id="city"
               label="City"
               variant="outlined"
+              sx = {{
+                backgroundColor: 'white',
+              }}
             />
           </FormControl>
           <FormControl fullWidth>
@@ -145,6 +166,9 @@ function StudentSignIn() {
               id="high-school"
               label="High School"
               variant="outlined"
+              sx = {{
+                backgroundColor: 'white',
+              }}
             />
           </FormControl>
         </Box>
@@ -157,6 +181,9 @@ function StudentSignIn() {
               label="Email"
               type="email"
               variant="outlined"
+              sx = {{
+                backgroundColor: 'white',
+              }}
             />
           </FormControl>
           <FormControl fullWidth>
@@ -166,6 +193,9 @@ function StudentSignIn() {
               label="Password"
               type="password"
               variant="outlined"
+              sx = {{
+                backgroundColor: 'white',
+              }}
             />
           </FormControl>
         </Box>

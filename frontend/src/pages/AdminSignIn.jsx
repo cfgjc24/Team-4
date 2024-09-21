@@ -32,6 +32,9 @@ function AdminSignIn() {
             label="First Name"
             variant="outlined"
             type = "text"
+            sx = {{
+                backgroundColor: 'white',
+              }}
             />
         </FormControl>
         <FormControl fullWidth>
@@ -41,6 +44,9 @@ function AdminSignIn() {
             label="Last Name"
             variant="outlined"
             type = "text"
+            sx = {{
+                backgroundColor: 'white',
+              }}
             />
         </FormControl>
        </Box>
@@ -53,6 +59,9 @@ function AdminSignIn() {
             label="Admin ID"
             variant="outlined"
             type = "number"
+            sx = {{
+                backgroundColor: 'white',
+              }}
             />
         </FormControl>
 
@@ -63,6 +72,9 @@ function AdminSignIn() {
             label="University Affiliation"
             variant="outlined"
             type = "text"
+            sx = {{
+                backgroundColor: 'white',
+              }}
             />
         </FormControl>
         
@@ -76,6 +88,9 @@ function AdminSignIn() {
             id="email"
             label="Email"
             variant="outlined"
+            sx = {{
+                backgroundColor: 'white',
+              }}
             />
         </FormControl>
         <FormControl fullWidth>
@@ -84,6 +99,9 @@ function AdminSignIn() {
             id="password"
             label="Password"
             variant="outlined"
+            sx = {{
+                backgroundColor: 'white',
+              }}
             />
         </FormControl>
 
