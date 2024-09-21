@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
+
 const Navbar = () => {
   return (
     <AppBar position="fixed" sx= {{width: '100%'}}>
@@ -17,7 +18,6 @@ const Navbar = () => {
         <Typography variant="h6" style={{ flexGrow: 1 }}>
         </Typography>
         {/* <Button color="inherit">Training</Button> */}
-
         <Link to="/office-hours">
         <Button style={{ color: 'white' }}color="inherit">Office Hours</Button>
         </Link>
@@ -34,6 +34,7 @@ const Navbar = () => {
       >
         Contact
       </Button>
+
       </Toolbar>
     </AppBar>
   );

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import './App.css'
 import StudentSignIn from './pages/StudentSignIn';
 import LogIn from './pages/LogIn';
@@ -18,6 +18,8 @@ import Slides from './pages/Slides'
 import Quiz from './pages/Quiz'
 import './App.css';
 import './index.css';
+import PreCourseSurvey from './pages/PreCourseSurvey';
+
 
 function App() {
   return (
@@ -27,6 +29,18 @@ function App() {
           <Route path="/" element={<LogIn/>} /> 
           {/* <Route path="/" element={<StudentSignIn/>} /> */}
           {/* <Route path = "/tutor-home-page" element={<ButtonAppBar/>} />  */}
+          <Route path="/student-precourse-survey" element={<PreCourseSurvey/>}/>
+          {/* <Route path="/" element={<StudentSignIn/>} /> */}
+          {/*<Route path="/" element={<CreateAccount/>} />   */} 
+          {/*<Route path="/" element={<LogIn/>} /> */}
+          {/* <Route path="/" element={<StudentSignIn/>} /> */}
+          {/* <Route path="/student-signup" element={<StudentSignIn/>} />  */}
+         {/*  <Route path = "/tutor-signup" element={<TutorSignIn/>} /> */}
+         {/* <Route path = "/teacher-signup" element={<TeacherSignIn/>} />
+          <Route path = "/admin-signup" element={<AdminSignIn/>} />
+          <Route path = "/student-dashboard" element={<StudentDashboard/>} />
+          <Route path = "/tutor-dashboard" element={<TutorDashboard/>} />
+          <Route path = "/admin-dashboard" element={<AdminDashboard/>} />  */}
 
           <Route path="/create-account" element={<CreateAccount/>} />  
 
@@ -42,6 +56,7 @@ function App() {
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/slides" element={<Slides />} />
           <Route path="/quiz" element={<Quiz />} />
+
         </Routes>
       </Router>
     </>

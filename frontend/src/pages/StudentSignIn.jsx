@@ -54,6 +54,7 @@ function StudentSignIn() {
     setRace(event.target.value);
   };
 
+
   const handleStateChange = (event) => {
     setState(event.target.value);
   };
@@ -120,7 +121,6 @@ function StudentSignIn() {
 
     };
   
-
   return (
     <div>
       <Header />

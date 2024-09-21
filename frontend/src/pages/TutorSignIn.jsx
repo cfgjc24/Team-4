@@ -13,7 +13,6 @@ import { useState } from 'react';
 
 
 function TutorSignIn() {
-    
     const VisuallyHiddenInput = styled('input')({
         clip: 'rect(0 0 0 0)',
         clipPath: 'inset(50%)',
@@ -44,8 +43,6 @@ function TutorSignIn() {
       const [gender, setGender] = React.useState('');
       const [ethnicity, setEthnicity] = React.useState('');
       const[race, setRace] = React.useState('');
-   
-
       const [availability, setAvailability] = useState ([{ start: dayjs(), end: dayjs().add(1, 'hour') }]);
 
       const handleAdd = () => {  setAvailability([...availability, { start: dayjs(), end: dayjs().add(1, 'hour') }]); };
@@ -61,7 +58,6 @@ function TutorSignIn() {
             const newAvailability = availability.filter((slot, i) => i !== index);
             setAvailability(newAvailability);
         };
-
         const handlePronounsChange = (event) => {
           setPronoun(event.target.value);
           };
@@ -78,12 +74,6 @@ function TutorSignIn() {
       const handleRaceChange = (event) => {
         setRace(event.target.value);
       };
-    
-    
-    
-
-     
-
 
       const fileInputRef = React.useRef(null);
     
@@ -343,6 +333,32 @@ function TutorSignIn() {
               </FormControl>
             </Box>
 
+            <Box sx={{ display: 'flex', gap: 2 }}>
+              <FormControl fullWidth>
+                <TextField
+                  required
+                  id="email"
+                  label="Email"
+                  type="email"
+                  variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
+                />
+              </FormControl>
+              <FormControl fullWidth>
+                <TextField
+                  required
+                  id="password"
+                  label="Password"
+                  type="password"
+                  variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
+                />
+              </FormControl>
+            </Box>
 
             <Box sx={{ display: 'flex', gap: 2 }}>
 

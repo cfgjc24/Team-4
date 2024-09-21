@@ -14,11 +14,10 @@ const LogInForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login data submitted:', formData);
-    navigate("/create-account")
 
     // Add auth here
     // window.location.href = '/teacher-signup'; // Redirect to teacher-signup page after login
@@ -41,6 +40,7 @@ const LogInForm = () => {
             onChange={handleChange}
             required
             style={{ width: '75%', padding: '10px', borderRadius: '10px', border: '1px solid #ccc' }}
+
           />
         </div>
         <div>
@@ -54,6 +54,7 @@ const LogInForm = () => {
             onChange={handleChange}
             required
             style={{ width: '75%', padding: '10px', borderRadius: '10px', border: '1px solid #ccc' }}
+
           />
         </div>
         <button type="submit" style={{ padding: '10px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
