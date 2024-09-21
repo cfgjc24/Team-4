@@ -15,14 +15,14 @@ const tutorSchema = new mongoose.Schema({
         required: true
     },
     highschool_id: {
-        type: [mongoose.Schema.Types.ObjectId],
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: "HighSchool"
     },
     email: {
         type: String,
         required: true,
-        unique: true // email as primary key
+        unique: true 
     },
     race: {
         type: String,
@@ -42,10 +42,16 @@ const tutorSchema = new mongoose.Schema({
         type: String,
         enum: ['He/Him', 'She/Her', 'They/Them', 'Other']
     },
-    availability: {
-        type: String,
-        required: true
-    }
+    availability: [{
+        start: {
+          type: Date, 
+          required: true
+        },
+        end: {
+          type: Date,
+          required: true
+        }
+      }]
 });
 
 const Tutor = mongoose.model("Tutor", tutorSchema);

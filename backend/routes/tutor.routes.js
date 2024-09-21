@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/", getTutors);
 
-router.post("/", createTutor);
+router.post("/createTutor", createTutor);
 
 router.delete("/:email", deleteTutor); // admin functionality
 
