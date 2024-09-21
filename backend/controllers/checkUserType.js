@@ -1,8 +1,8 @@
 //checkUserType.js
-import Student from "./models/student.model.js";
-import Tutor from "./models/tutor.model.js";
-import Teacher from "./models/teacher.model.js";
-import Admin from "./models/admin.model.js";
+import Student from "../models/student.model.js";
+import Tutor from "../models/tutor.model.js";
+import Teacher from "../models/teacher.model.js";
+import Admin from "../models/admin.model.js";
 
 export const checkUserType = async (req, res, next) => {
   const { email } = req.body; 

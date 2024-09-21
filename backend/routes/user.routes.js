@@ -1,6 +1,6 @@
 // routes/user.routes.js
 import express from "express";
-import { checkUserType } from "../backend/checkUserType.js";
+import { checkUserType } from "../controllers/checkUserType.js";
 
 const router = express.Router();
 
