@@ -93,10 +93,6 @@ const studentSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
         required: true
-    },
-    availability: {
-        type: String,
-        required: true
     }
 }, {
     timestamps: true // createdAt, updatedAt
