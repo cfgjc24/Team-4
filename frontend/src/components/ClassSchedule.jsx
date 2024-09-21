@@ -6,16 +6,35 @@ import { useEffect } from 'react';
 
 
 function ClassSchedule() {
-    useEffect(async () => {
-        try {
-            const response = await fetch('http://localhost:5001/api/highschools/getHighSchools');
-            const data = await response.json();
-            console.log(data);
+    const schedTutors = [];
+    useEffect( () => {
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:5001/api/highschools/getHighSchools');
+                const data = await response.json();
+                // console.log(data);
+                console.log(data.data);
+                for(let i = 0; i < data.data.length; i++)
+                {
+                    const response = await fetch('http://localhost:5001/api/match/matchTutors', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({highschool_id: data.data[i]._id, class_schedule: data.data[i].classSchedule}),
+                    });
+                    const tutorData = await response.json();
+                    schedTutors.push(tutorData.tutors);
+                }
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
         }
-        catch(error)
-        {
-            console.log(error);
-        }
+
+        fetchData();
+        
     }, []);
 
     return (
