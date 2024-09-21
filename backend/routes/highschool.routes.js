@@ -1,6 +1,6 @@
 import express from "express";
 
-import { createHighSchool, getHighSchool, getHighSchools, updateHighSchool, deleteHighSchool } from '../controllers/teacher.controllers.js';
+import { createHighSchool, getHighSchool, getHighSchools, updateHighSchool, deleteHighSchool } from '../controllers/highschool.controllers.js';
 
 const router = express.Router();
 
