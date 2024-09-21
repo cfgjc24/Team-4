@@ -52,7 +52,17 @@ const LogInForm = () => {
         </label>
       </div>
       <button type="submit">Login</button>
+
+      <div>
+      <span> Forgot Password? </span>
+      </div>
+
+      <div>
+      <span> Create Account </span>
+      </div>
+
     </form>
+   
   );
 };
 
