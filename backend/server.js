@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { connectDB } from './config/db.js';
 import studentRoutes from "./routes/student.routes.js";
 import metricRoutes from './routes/metrics.routes.js';  // Make sure this path is correct
+import cors from 'cors';
 
 
 // allows us to see environment info
@@ -11,6 +12,8 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 app.use(express.json()); // middle layer that allows us to parse json data in body
+app.use(cors());  // Enable CORS for all routes
+
 
 
 app.use("/api/students", studentRoutes);

@@ -4,11 +4,11 @@ import { createStudent, getStudents, updateStudent, deleteStudent, getStudent } 
 
 const router = express.Router();
 
-router.get("/", getStudents);
+router.get("/getStudents", getStudents);
 
 router.get("/:email", getStudent);
 
-router.post("/", createStudent); // student create account
+router.post("/createStudent", createStudent); // student create account
 
 router.delete("/:email", deleteStudent); // admin functionality
 
