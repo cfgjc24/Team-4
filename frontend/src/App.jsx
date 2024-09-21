@@ -9,6 +9,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import TutorDashboard from './pages/TutorDashboard';
 import CourseMaterials from './components/CourseMaterials';
 import StudentDashboard from './pages/StudentDashboard';
+import TeacherSignIn from './pages/TeacherSignIn';
+import AdminSignIn from './pages/AdminSignIn';
 import './App.css';
 import './index.css';
 
@@ -25,8 +27,8 @@ function App() {
 
           <Route path="/student-signup" element={<StudentSignIn/>} /> 
           <Route path = "/tutor-signup" element={<TutorSignIn/>} />
-          {/* <Route path = "/teacher-signup" element={<TeacherSignIn/>} /> */}
-          {/* <Route path = "/admin-signup" element={<AdminSignIn/>} /> */}
+          <Route path = "/teacher-signup" element={<TeacherSignIn/>} /> 
+          <Route path = "/admin-signup" element={<AdminSignIn/>} /> 
           <Route path = "/student-dashboard" element={<StudentDashboard/>} />
           <Route path = "/tutor-dashboard" element={<TutorDashboard/>} /> 
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
