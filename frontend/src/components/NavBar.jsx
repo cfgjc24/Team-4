@@ -17,11 +17,19 @@ const Navbar = () => {
         <Typography variant="h6" style={{ flexGrow: 1 }}>
         </Typography>
         {/* <Button color="inherit">Training</Button> */}
+
         <Link to="/office-hours">
         <Button style={{ color: 'white' }}color="inherit">Office Hours</Button>
         </Link>
-        <Button color="inherit">Attendance</Button>
-        <Button color="inherit">Modules</Button>
+
+        <Link to="/attendance">
+        <Button style={{ color: 'white' }}> Attendance</Button>
+        </Link>
+
+        <Link to="/course-materials">
+        <Button style={{ color: 'white' }}> Modules</Button>
+        </Link>
+
         <Button color="inherit" onClick={() => window.location.href = 'mailto:your-email@example.com'}
       >
         Contact
