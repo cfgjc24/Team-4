@@ -8,6 +8,18 @@ import tutorRoutes from "./routes/tutor.routes.js";
 import chapterRoutes from "./routes/chapter.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
 import highschoolRoutes from "./routes/highschool.routes.js";
+import userRoutes from "./routes/user.routes.js";
+
+// fake bday verification Endpoint
+app.post('/api/verify-birthday', (req, res) => {
+    const { birthday } = req.body;
+    
+    //delay for "verification"
+    setTimeout(() => {
+        // return success response for fake verification
+        res.json({ success: true, message: 'Birthday verified successfully!' });
+    }, 1000); // 1-second delay to simulate processing
+});
 
 
 // allows us to see environment info
@@ -23,7 +35,17 @@ app.use("/api/tutors", tutorRoutes); // set prefix for all route methods
 app.use("/api/chapters", chapterRoutes); // set prefix for all route methods
 app.use("/api/admins", adminRoutes); // set prefix for all route methods
 app.use("/api/highschools", highschoolRoutes); // set prefix for all route methods
+app.use("/api/users", userRoutes);
 
+app.post('/api/verify-birthday', (req, res) => {
+    const { birthday } = req.body;
+    
+    // fake a delay for "verification"
+    setTimeout(() => {
+        //  return success response for fake verification
+        res.json({ success: true, message: 'Birthday verified successfully!' });
+    }, 1000); // 1-second delay to fake processing
+});
 
 // prints message to homepage
 app.get("/", (req, res) => {
