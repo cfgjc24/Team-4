@@ -11,22 +11,6 @@ export const getStudents = async (req, res) => {
     }
 };
 
-export const createStudent = async (req, res) => {
-
-    const student = req.body; // user sends this data
-    if (!student.name || !student.price || !student.image) {
-        return res.status(400).json({success:false, message: "Please provide all fields"})
-    }
-
-    const newStudent = new Student(student) // create new student with info given
-
-    try {
-        await newStudent.save();
-        res.status(201).json({sucess: true, data: newStudent});
-    } catch (error) {
-        console.error("Error in Create Student: ", error.message);
-        res.status(500).json({ sucess: false, message: "Server Error"});
-
 export const getStudent = async (req, res) => {
     const { email } = req.params; 
     try {
@@ -108,12 +92,6 @@ export const createStudent = async (req, res) => {
 };
 
 export const deleteStudent = async (req, res) => {
-    const { id } = req.params;
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({success: false, message: "Invalid student ID"});
-    }
-    try {
-        await Student.findByIdAndDelete(id);
     const { email } = req.params;
     if(!mongoose.Types.ObjectId.isValid(email)){
         return res.status(404).json({success: false, message: "Invalid student email"});
@@ -127,13 +105,6 @@ export const deleteStudent = async (req, res) => {
 };
 
 export const updateStudent = async (req, res) => {
-    const { id } = req.params;
-    const student = req.body;
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({success: false, message: "Invalid student ID"});
-    }
-    try {
-        const updatedStudent = await Student.findByIdAndUpdate(id, student, {new:true});
     const { email } = req.params;
     const student = req.body;
     if(!mongoose.Types.ObjectId.isValid(email)){
@@ -145,4 +116,4 @@ export const updateStudent = async (req, res) => {
     } catch (error) {
         res.status(500).json({ success: false, message: "Server Error"});
     }
-}
+};
