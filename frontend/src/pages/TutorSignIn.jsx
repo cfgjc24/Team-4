@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/header';
 import { FormControl, TextField, Box, Button, Select, MenuItem, InputLabel, IconButton } from '@mui/material';
+import Typography from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/system';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
@@ -15,6 +16,7 @@ import { useState } from 'react';
 
 
 function TutorSignIn() {
+    
     const VisuallyHiddenInput = styled('input')({
         clip: 'rect(0 0 0 0)',
         clipPath: 'inset(50%)',
@@ -72,7 +74,7 @@ function TutorSignIn() {
     return (
         <div>
           <Header />
-          <h1>Tutor Sign Up</h1>
+          <Typography variant='h3' marginBottom={2}> Tutor Sign Up </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
             
             <Box sx={{ display: 'flex', gap: 2 }}>
@@ -258,7 +260,7 @@ function TutorSignIn() {
             </Box>
     
             <Button variant="contained" color="primary" onClick={handleSubmit}>
-              Sign In
+              Sign Up
             </Button>
     
           </Box>

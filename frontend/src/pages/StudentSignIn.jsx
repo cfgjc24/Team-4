@@ -4,6 +4,7 @@ import { FormControl, TextField, Box, Button, Select, MenuItem, InputLabel } fro
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
+import { Typography } from '@mui/material';
 
 function StudentSignIn() {
   const VisuallyHiddenInput = styled('input')({
@@ -45,7 +46,7 @@ function StudentSignIn() {
   return (
     <div>
       <Header />
-      <h1>Student Sign Up</h1>
+      <Typography variant='h3' marginBottom={2}>Student Sign Up</Typography>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
         
         <Box sx={{ display: 'flex', gap: 2 }}>
