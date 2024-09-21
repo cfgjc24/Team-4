@@ -1,18 +1,19 @@
 import React from 'react';
-import AMenu from '../components/Menu';
 import CourseMaterials from '../components/CourseMaterials';
 import Navbar from '../components/NavBar';
+import ProgressBar from '../components/ProgressBar';
 
-function AdminDashboard() {
+function StudentDashboard() {
   return (
     <div>
       <Navbar></Navbar>
       <div style={{ paddingTop: '64px' }}>
-        <h1>Welcome, Admins!</h1>
-        <AMenu />
+      <ProgressBar></ProgressBar>
+        <h1>Welcome, Students!</h1>
+        <CourseMaterials/>
       </div>
     </div>
   );
 }
 
-export default AdminDashboard;
+export default StudentDashboard;

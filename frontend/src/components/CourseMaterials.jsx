@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/header';
+// import Header from './header';
 import { Box, Typography } from '@mui/material';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
@@ -18,7 +18,7 @@ const lessons = [
 function CourseMaterials() {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             <h1>Course Materials</h1>
             <div className="grid-container">
                 {lessons.map((lesson, index) => (
