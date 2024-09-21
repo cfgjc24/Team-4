@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
+import Header from './header';
 import { useNavigate, Link } from 'react-router-dom';
 
 
 const LogInForm = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: '',
   });
 
@@ -14,17 +14,68 @@ const LogInForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Login data submitted:', formData);
+
+    try {
+      const response = await fetch('http://localhost:5001/api/users/checkUserType', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },  
+        body: JSON.stringify({ email: formData.email }),
+  
+      })
+      const contentType = response.headers.get('content-type');
+    
+    let data;
+    if (contentType && contentType.includes('application/json')) {
+      data = await response.json();
+    } else {
+      console.log(data);
+      throw new Error('Expected JSON response but received something else');
+
+    }
+      if(response.ok)
+      {
+        console.log(data.userType);
+        if(data.userType === 'student')
+        {
+          console.log(data.userType);
+          navigate('/student-dashboard');
+        }
+        else if(data.userType === 'tutor')
+        {
+          navigate('/tutor-dashboard');
+        }
+        else if(data.userType === 'teacher')
+        {
+          navigate('/tutor-dashboard');
+        }
+        else if (data.userType === 'admin')
+        {
+          navigate('/admin-dashboard');
+        }
+      }
+  
+    } catch(error)
+    {
+      console.error('Error:', error);
+      navigate("/create-account");
+    }
+  
+    
+   
+
 
     // Add auth here
     // window.location.href = '/teacher-signup'; // Redirect to teacher-signup page after login
     
     setFormData({ username: '', password: '' });
   };
-
+  
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
       <Header />

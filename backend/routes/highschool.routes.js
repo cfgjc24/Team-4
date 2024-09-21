@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/", getHighSchools);
 
-router.post("/", createHighSchool);
+router.post("/createHighSchool", createHighSchool);
 
 router.delete("/:id", deleteHighSchool);
 

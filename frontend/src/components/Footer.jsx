@@ -54,7 +54,6 @@ const Footer = () => {
           <YouTubeIcon />
         </IconButton>
       </Box>
-
       {/* Footer copyright text */}
       <Typography variant="body2" color="textSecondary" sx={{ mt: 2 }}>
         © First Generation Investors. All rights reserved.

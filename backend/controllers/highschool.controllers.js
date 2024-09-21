@@ -32,7 +32,8 @@ export const createHighSchool = async (req, res) => {
         hs_id,
         name,
         city,
-        state
+        state,
+        classSchedule
     } = req.body;
 
     try {
@@ -43,12 +44,13 @@ export const createHighSchool = async (req, res) => {
             return res.status(400).json({ message: "HighSchool with this ID already exists!" });
         }
 
-        // Create a new student instance
+        // Create a new school instance
         const newHighSchool = new HighSchool({
             hs_id,
             name,
             city,
-            state
+            state,
+            classSchedule
         });
 
         // Save the student to the database

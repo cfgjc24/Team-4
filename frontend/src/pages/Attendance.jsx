@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from '../components/NavBar';
 import WeekProgressTable from '../components/WeekProgressTable';
-
 function Attendance() {
   return (
     <div>
@@ -13,5 +12,4 @@ function Attendance() {
     </div>
   );
 }
-
 export default Attendance;

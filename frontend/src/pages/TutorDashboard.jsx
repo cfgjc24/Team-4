@@ -7,7 +7,7 @@ function TutorDashboard() {
     <div>
       <Navbar></Navbar>
       <div style={{ paddingTop: '5px' }}>
-        <h1>Welcome, Tutors!</h1>
+        <h1>Welcome, Educators!</h1>
         <CourseMaterials/>
       </div>
     </div>
