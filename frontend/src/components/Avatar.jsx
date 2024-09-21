@@ -5,7 +5,7 @@ import Box from '@mui/joy/Box';
 import Link from '@mui/joy/Link';
 import { Typography } from '@mui/material';
 
-import { Link } from 'react-router-dom';
+
 
 
 export default function BasicAvatars() {
@@ -72,36 +72,7 @@ export default function BasicAvatars() {
      
     </Box>
     </div>
-
-=======
-      <div> 
-        <Link to="/student-signup" style={{ textDecoration: 'none' }}>
-          <Avatar size="lg" sx={{ width: 80, height: 80 }} /> 
-          <span style={{ color: 'white' }}>Student</span>
-        </Link>
-      </div>
-
-      <div> 
-        <Link to="/tutor-signup" style={{ textDecoration: 'none' }}>
-          <Avatar size="lg" sx={{ width: 80, height: 80 }} /> 
-          <span style={{ color: 'white' }}>Tutor</span>
-        </Link>
-      </div>
-
-      <div> 
-        <Link to="/teacher-signup" style={{ textDecoration: 'none' }}>
-          <Avatar size="lg" sx={{ width: 80, height: 80 }} /> 
-          <span style={{ color: 'white' }}>Teacher</span>
-        </Link>
-      </div>
-
-      <div> 
-        <Link to="/admin-signup" style={{ textDecoration: 'none' }}>
-          <Avatar size="lg" sx={{ width: 80, height: 80 }} /> 
-          <span style={{ color: 'white' }}>Admin</span>
-        </Link>
-      </div>
-
+      
     </Box>
 
 

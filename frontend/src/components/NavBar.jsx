@@ -30,6 +30,10 @@ const Navbar = () => {
         <Button style={{ color: 'white' }}> Modules</Button>
         </Link>
 
+        <Link to="/class-schedule">
+        <Button style={{ color: 'white' }}> Class Schedule</Button>
+        </Link>
+
         <Button color="inherit" onClick={() => window.location.href = 'mailto:your-email@example.com'}
       >
         Contact

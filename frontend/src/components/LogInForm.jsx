@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from './Header';
+import Header from './header';
 import { useNavigate, Link } from 'react-router-dom';
 
 
@@ -40,8 +40,10 @@ const LogInForm = () => {
     }
       if(response.ok)
       {
-        if(data.userType === 'student')
+        console.log(data.userType);
+        if(data.userType == 'student')
         {
+          console.log(data.userType);
           navigate('/student-dashboard');
         }
         else if(data.userType === 'tutor')
@@ -61,11 +63,11 @@ const LogInForm = () => {
     } catch(error)
     {
       console.error('Error:', error);
+      navigate("/create-account");
     }
   
     
-=======
-    navigate("/create-account")
+   
 
 
     // Add auth here
