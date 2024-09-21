@@ -7,7 +7,7 @@ function Attendance() {
     <div>
       <Navbar></Navbar>
       <div style={{ paddingTop: '64px' }}>
-        <h1>Here is your attendance so far!</h1>
+        <h1>Progress Tracker</h1>
         <WeekProgressTable/>
       </div>
     </div>
