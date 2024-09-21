@@ -9,6 +9,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import TutorDashboard from './pages/TutorDashboard';
 import CourseMaterials from './components/CourseMaterials';
 import StudentDashboard from './pages/StudentDashboard';
+import WeekProgressTable from './components/WeekProgressTable';
+import Attendance from './pages/Attendance';
 import './App.css';
 import './index.css';
 
@@ -31,6 +33,7 @@ function App() {
           <Route path = "/tutor-dashboard" element={<TutorDashboard/>} /> 
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/course-materials" element={<CourseMaterials />} />
+          <Route path="/attendance" element={<Attendance />} />
         </Routes>
       </Router>
     </>

@@ -18,7 +18,7 @@ const WeekProgressTable = () => {
   return (
     <Table>
       <TableHead>
-        <TableRow>
+        <TableRow sx = {{ "& th": { color: "rgba(96, 96, 96)"}}}>
           {weeks.map((week, index) => (
             <TableCell key={index} align="center">
               {week.week}
