@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #ccdae2;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -72,14 +72,14 @@ body {
   background-size: cover;
   background-position: center;
   color: white;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); */
   border-radius: 10px;
   padding: 16px;
   /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); */
 }
 
 .lesson-button {
-  background-color: #4a90e2; 
+  background-color: #0b305b; 
   color: white; 
   font-weight: bold;
   border-radius: 16px; 
@@ -87,7 +87,7 @@ body {
   text-align: center; 
   height: 150px;
   transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); 
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);  */
   margin: 10px; 
   flex: 0 0 calc(33.333% - 20px); 
   box-sizing: border-box; 

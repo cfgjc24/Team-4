@@ -7,6 +7,7 @@ import ProgressBar from '../components/ProgressBar';
 import Footer from './Footer';
 
 // Styled component for the hover effect on the check mark
+// Edit edit edit final final final
 const HoverableCheckIcon = styled(CheckIcon)(({ theme }) => ({
   color: green[500],
   fontSize: '2rem',
