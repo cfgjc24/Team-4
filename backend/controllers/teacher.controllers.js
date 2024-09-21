@@ -50,7 +50,7 @@ export const createTeacher = async (req, res) => {
         // Save the student to the database
         await newTeacher.save();
 
-        res.status(201).json({ message: "Teacher created successfully!", data: newStudent });
+        res.status(201).json({ message: "Teacher created successfully!", data: newTeacher });
     } catch (error) {
         console.log("Error in creating teacher: ", error.message);
         res.status(500).json({ message: "Server error: " + error.message });

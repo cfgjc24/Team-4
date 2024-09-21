@@ -52,7 +52,7 @@ export const createTutor = async (req, res) => {
         // Save the student to the database
         await newTutor.save();
 
-        res.status(201).json({ message: "Tutor created successfully!", data: newStudent });
+        res.status(201).json({ message: "Tutor created successfully!", data: newTutor });
     } catch (error) {
         console.log("Error in creating tutor: ", error.message);
         res.status(500).json({ message: "Server error: " + error.message });
@@ -61,15 +61,15 @@ export const createTutor = async (req, res) => {
 
 // Delete a tutor by ID
 export const deleteTutor = async (req, res) => {
-    const { id } = req.params;
+    const { email } = req.params;
 
     // Validate the ID
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ success: false, message: "Invalid tutor ID" });
+    if (!mongoose.Types.ObjectId.isValid(email)) {
+        return res.status(404).json({ success: false, message: "Invalid tutor email" });
     }
 
     try {
-        await Tutor.findByIdAndDelete(id);
+        await Tutor.findByIdAndDelete(email);
         res.status(200).json({ success: true, message: "Successfully deleted" });
     } catch (error) {
         console.error("Error in Delete Tutor: ", error.message);
@@ -79,17 +79,17 @@ export const deleteTutor = async (req, res) => {
 
 // Update a tutor by ID
 export const updateTutor = async (req, res) => {
-    const { id } = req.params;
+    const { email } = req.params;
     const tutor = req.body;
 
-    // Validate the ID
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ success: false, message: "Invalid tutor ID" });
+    // Validate the email
+    if (!mongoose.Types.ObjectId.isValid(email)) {
+        return res.status(404).json({ success: false, message: "Invalid tutor email" });
     }
 
     try {
         // Update tutor and return the updated document
-        const updatedTutor = await Tutor.findByIdAndUpdate(id, tutor, { new: true });
+        const updatedTutor = await Tutor.findByIdAndUpdate(email, tutor, { new: true });
 
         if (!updatedTutor) {
             return res.status(404).json({ success: false, message: "Tutor not found" });

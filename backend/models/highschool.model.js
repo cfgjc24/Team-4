@@ -2,8 +2,8 @@
 import mongoose from "mongoose";
 
 const highschoolSchema = new mongoose.Schema({
-    id: {
-        type: int,
+    hs_id: {
+        type: Number,
         required: true,
         unique: true // id as primary key
     },
