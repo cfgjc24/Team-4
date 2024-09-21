@@ -8,8 +8,8 @@ const chapterSchema = new mongoose.Schema({
         unique: true // name as primary key
     },
     highschool_ids: [{
-        type: String,
-        ref: "Highschool" // ref to the Highschool collection
+        type: [int],
+        ref: "HighSchool" // ref to the HighSchool collection
     }]
 });
 
