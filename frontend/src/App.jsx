@@ -14,6 +14,8 @@ import Attendance from './pages/Attendance';
 import TeacherSignIn from './pages/TeacherSignIn';
 import AdminSignIn from './pages/AdminSignIn';
 import OfficeHours from './pages/Office'
+import Slides from './pages/Slides'
+import Quiz from './pages/Quiz'
 import './App.css';
 import './index.css';
 
@@ -38,6 +40,8 @@ function App() {
           <Route path="/course-materials" element={<CourseMaterials />} />
           <Route path="/office-hours" element={<OfficeHours/>} />
           <Route path="/attendance" element={<Attendance />} />
+          <Route path="/slides" element={<Slides />} />
+          <Route path="/quiz" element={<Quiz />} />
         </Routes>
       </Router>
     </>
