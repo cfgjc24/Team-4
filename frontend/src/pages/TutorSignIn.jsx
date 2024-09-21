@@ -66,7 +66,25 @@ function TutorSignIn() {
     
       const handleSubmit = async (event) => {
         event.preventDefault();
-        // Handle form submission logic
+        
+        const formData = {
+            firstName: document.getElementById('first-name').value,
+            lastName: document.getElementById('last-name').value,
+            race: document.getElementById('race').value,
+            ethnicity: document.getElementById('ethnicity').value,
+            age: document.getElementById('age').value,
+            state: state,
+            city: document.getElementById('city').value,
+            highSchool: document.getElementById('high-school').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            availability: availability.map((slot) => ({
+                start: slot.start.toISOString(),
+                end: slot.end.toISOString(),
+
+            })),
+            };
+       
       };
     return (
         <div style={{ minHeight: '100vh', padding: '50px'}}>

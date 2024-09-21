@@ -8,7 +8,16 @@ import Header from '../components/header';
 function AdminSignIn() {
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // Handle form submission logic
+        
+        const formData = {
+            firstName: document.getElementById('first-name').value,
+            lastName: document.getElementById('last-name').value,
+            university: document.getElementById('uni-affiliation').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            };
+        }
+      
       }
     return (
         <div>

@@ -6,9 +6,16 @@ import Header from '../components/header';
 function TeacherSignIn() {
     const handleSubmit = async (event) => {
         e.preventDefault();
-        // Handle form submission logic
+        
+        const formData = {
+            firstName: document.getElementById('first-name').value,
+            lastName: document.getElementById('last-name').value,
+            
+
 
     };
+
+}
     const states = [
         'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 
         'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 
@@ -52,15 +59,6 @@ function TeacherSignIn() {
     
             <Box sx={{ display: 'flex', gap: 2 }}>
               <FormControl fullWidth>
-                <TextField
-                  required
-                  id="age"
-                  label="Age"
-                  type="number"
-                  variant="outlined"
-                />
-              </FormControl>
-              <FormControl fullWidth>
                 <InputLabel id="state-label">State</InputLabel>
                 <Select
                   required
@@ -78,9 +76,6 @@ function TeacherSignIn() {
                   ))}
                 </Select>
               </FormControl>
-            </Box>
-    
-            <Box sx={{ display: 'flex', gap: 2 }}>
               <FormControl fullWidth>
                 <TextField
                   required
@@ -89,6 +84,10 @@ function TeacherSignIn() {
                   variant="outlined"
                 />
               </FormControl>
+            </Box>
+    
+            <Box sx={{ display: 'flex', gap: 2 }}>
+             
               <FormControl fullWidth>
                 <TextField
                   required
@@ -97,9 +96,6 @@ function TeacherSignIn() {
                   variant="outlined"
                 />
               </FormControl>
-            </Box>
-    
-            <Box sx={{ display: 'flex', gap: 2 }}>
               <FormControl fullWidth>
                 <TextField
                   required
@@ -109,6 +105,10 @@ function TeacherSignIn() {
                   variant="outlined"
                 />
               </FormControl>
+            </Box>
+    
+            <Box sx={{ display: 'flex', gap: 2 }}>
+              
               <FormControl fullWidth>
                 <TextField
                   required
