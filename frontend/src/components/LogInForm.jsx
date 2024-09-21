@@ -41,7 +41,7 @@ const LogInForm = () => {
       if(response.ok)
       {
         console.log(data.userType);
-        if(data.userType == 'student')
+        if(data.userType === 'student')
         {
           console.log(data.userType);
           navigate('/student-dashboard');
