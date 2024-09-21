@@ -4,14 +4,14 @@ import { createChapter, getChapters, updateChapter, deleteChapter, getChapter } 
 
 const router = express.Router();
 
-router.get("/", getChapter);
+router.get("/", getChapters);
 
-router.get("/:email", getChapter);
+router.get("/:name", getChapter);
 
 router.post("/", createChapter); // student create account
 
-router.delete("/:email", deleteChapter); // admin functionality
+router.delete("/:name", deleteChapter); // admin functionality
 
-router.put("/:email", updateChapter); // student profile
+router.put("/:name", updateChapter); // student profile
 
 export default router;
