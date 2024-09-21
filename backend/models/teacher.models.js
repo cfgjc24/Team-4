@@ -18,7 +18,7 @@ const teacherSchema = new mongoose.Schema({
     highschool_id: {
         type: int,
         required: true,
-        ref: "Highschool" // Reference to the HighSchool collection
+        ref: "HighSchool" // Reference to the HighSchool collection
     },
     students: {
         type: [String], // List of student names
