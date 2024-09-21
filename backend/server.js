@@ -10,6 +10,18 @@ import adminRoutes from "./routes/admin.routes.js";
 import highschoolRoutes from "./routes/highschool.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
+// fake bday verification Endpoint
+app.post('/api/verify-birthday', (req, res) => {
+    const { birthday } = req.body;
+    
+    //delay for "verification"
+    setTimeout(() => {
+        // return success response for fake verification
+        res.json({ success: true, message: 'Birthday verified successfully!' });
+    }, 1000); // 1-second delay to simulate processing
+});
+
+
 // allows us to see environment info
 dotenv.config()
 const app = express();
