@@ -22,6 +22,7 @@ const Navbar = () => {
         </Link>
         <Button color="inherit">Attendance</Button>
         <Button color="inherit">Modules</Button>
+        <Button color="inherit">Contact</Button>
       </Toolbar>
     </AppBar>
   );

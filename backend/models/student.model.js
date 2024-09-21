@@ -29,7 +29,7 @@ const studentSchema = new mongoose.Schema({
     },
     race: {
         type: String,
-        enum: ['Asian', 'Black', 'Hispanic', 'White', 'Other'],
+        enum: ['Asian', 'Black', 'Hispanic', 'White', 'Native American', 'Pacific Islander', 'Other'],
         required: true
     },
     ethnicity: {
@@ -56,13 +56,14 @@ const studentSchema = new mongoose.Schema({
         required: true
     },
     highschool_id: {
-        type: int,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'HighSchool', // Reference to HighSchool model
         required: true
     },
     teacher_email: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "Teacher"
     },
     date_of_birth: {
         type: Date,

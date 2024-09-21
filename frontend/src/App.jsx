@@ -9,6 +9,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import TutorDashboard from './pages/TutorDashboard';
 import CourseMaterials from './components/CourseMaterials';
 import StudentDashboard from './pages/StudentDashboard';
+import WeekProgressTable from './components/WeekProgressTable';
+import Attendance from './pages/Attendance';
 import TeacherSignIn from './pages/TeacherSignIn';
 import AdminSignIn from './pages/AdminSignIn';
 import OfficeHours from './pages/Office'
@@ -35,7 +37,7 @@ function App() {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/course-materials" element={<CourseMaterials />} />
           <Route path="/office-hours" element={<OfficeHours/>} />
-          
+          <Route path="/attendance" element={<Attendance />} />
         </Routes>
       </Router>
     </>
