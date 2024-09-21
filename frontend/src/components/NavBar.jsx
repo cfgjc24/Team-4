@@ -22,7 +22,10 @@ const Navbar = () => {
         </Link>
         <Button color="inherit">Attendance</Button>
         <Button color="inherit">Modules</Button>
-        <Button color="inherit">Contact</Button>
+        <Button color="inherit" onClick={() => window.location.href = 'mailto:your-email@example.com'}
+      >
+        Contact
+      </Button>
       </Toolbar>
     </AppBar>
   );
