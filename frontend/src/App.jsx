@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import './App.css'
 import StudentSignIn from './pages/StudentSignIn';
 import LogIn from './pages/LogIn';
+import CreateAccount from './pages/CreateAccount';
 import TutorSignIn from './pages/TutorSignIn';
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
   return (
     <>
       <Router>
-        <Routes>     
+        <Routes>
+          {/* <Route path="/" element={<StudentSignIn/>} /> */}
+          <Route path="/" element={<CreateAccount/>} />    
           <Route path="/" element={<LogIn/>} /> 
           {/* <Route path="/" element={<StudentSignIn/>} /> */}
           {/* <Route path="/student-signup" element={<StudentSignIn/>} />  */}
