@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css'
 import StudentSignIn from './pages/StudentSignIn';
+import LogIn from './pages/LogIn';
 
 
 function App() {
@@ -10,8 +11,9 @@ function App() {
     <>
       <Router>
         <Routes>
-            <Route path="/" element={<StudentSignIn/>} />
-         {/* <Route path="/create-account" element={<CreateAccount/>} />  */}
+
+            {/* <Route path="/" element={<StudentSignIn/>} /> */}
+          <Route path="/" element={<LogIn/>} /> 
           {/* <Route path="/student-signup" element={<StudentSignIn/>} />  */}
           {/* <Route path = "/tutor-signup" element={<TutorSignIn/>} />
           <Route path = "/teacher-signup" element={<TeacherSignIn/>} />
