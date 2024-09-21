@@ -55,7 +55,6 @@ const LogInForm = () => {
         <button type="submit" style={{ padding: '10px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
           Login
         </button>
-
         <div style={{ marginTop: '15px', display: 'flex', justifyContent: 'space-between' }}>
           <span style={{ color: '#007bff', cursor: 'pointer' }}>Forgot Password?</span>
           <span style={{ color: '#007bff', cursor: 'pointer' }}>Create Account</span>

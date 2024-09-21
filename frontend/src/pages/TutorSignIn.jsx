@@ -1,10 +1,15 @@
 import React from 'react';
 import Header from '../components/header';
-import { FormControl, TextField, Box, Button, Select, MenuItem, InputLabel } from '@mui/material';
+import { FormControl, TextField, Box, Button, Select, MenuItem, InputLabel, IconButton } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/system';
-
-
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { Add, Delete } from '@mui/icons-material';
+import dayjs from 'dayjs';
+import { useState } from 'react';
 
 
 function TutorSignIn() {
@@ -27,6 +32,24 @@ function TutorSignIn() {
         'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 
         'WI', 'WY'
       ];
+
+      const [availability, setAvailability] = useState ([{ start: dayjs(), end: dayjs().add(1, 'hour') }]);
+
+      const handleAdd = () => {  setAvailability([...availability, { start: dayjs(), end: dayjs().add(1, 'hour') }]); };
+
+      const handleChange = (index, key, newValue) => {
+        const newAvailability = availability.map((slot, i) =>
+          i === index ? { ...slot, [key]: newValue } : slot
+        );
+        setAvailability(newAvailability);
+      };
+
+        const handleDelete = (index) => { 
+            const newAvailability = availability.filter((slot, i) => i !== index);
+            setAvailability(newAvailability);
+        };
+    
+    
     
       const [state, setState] = React.useState('');
       const fileInputRef = React.useRef(null);
@@ -41,12 +64,30 @@ function TutorSignIn() {
     
       const handleSubmit = async (event) => {
         event.preventDefault();
-        // Handle form submission logic
+        
+        const formData = {
+            firstName: document.getElementById('first-name').value,
+            lastName: document.getElementById('last-name').value,
+            race: document.getElementById('race').value,
+            ethnicity: document.getElementById('ethnicity').value,
+            age: document.getElementById('age').value,
+            state: state,
+            city: document.getElementById('city').value,
+            highSchool: document.getElementById('high-school').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            availability: availability.map((slot) => ({
+                start: slot.start.toISOString(),
+                end: slot.end.toISOString(),
+
+            })),
+            };
+       
       };
     return (
-        <div>
+        <div style={{ minHeight: '100vh', padding: '50px'}}>
           <Header />
-          <h1>Tutor Sign Up</h1>
+          <Typography variant='h3' marginBottom={2}> Tutor Sign Up </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
             
             <Box sx={{ display: 'flex', gap: 2 }}>
@@ -56,6 +97,9 @@ function TutorSignIn() {
                   id="first-name"
                   label="First Name"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -64,6 +108,9 @@ function TutorSignIn() {
                   id="last-name"
                   label="Last Name"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -75,6 +122,9 @@ function TutorSignIn() {
                   id="race"
                   label="Race"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -83,6 +133,9 @@ function TutorSignIn() {
                   id="ethnicity"
                   label="Ethnicity"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -95,6 +148,9 @@ function TutorSignIn() {
                   label="Age"
                   type="number"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -107,6 +163,9 @@ function TutorSignIn() {
                   onChange={handleStateChange}
                   label="State"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 >
                   {states.map((state) => (
                     <MenuItem key={state} value={state}>
@@ -124,6 +183,9 @@ function TutorSignIn() {
                   id="city"
                   label="City"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -132,6 +194,9 @@ function TutorSignIn() {
                   id="university"
                   label="University"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
@@ -144,6 +209,9 @@ function TutorSignIn() {
                   label="Email"
                   type="email"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
               <FormControl fullWidth>
@@ -153,11 +221,77 @@ function TutorSignIn() {
                   label="Password"
                   type="password"
                   variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
                 />
               </FormControl>
             </Box>
-    
+
             <Box sx={{ display: 'flex', gap: 2 }}>
+              <FormControl fullWidth>
+                <TextField
+                  required
+                  id="email"
+                  label="Email"
+                  type="email"
+                  variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
+                />
+              </FormControl>
+              <FormControl fullWidth>
+                <TextField
+                  required
+                  id="password"
+                  label="Password"
+                  type="password"
+                  variant="outlined"
+                  sx = {{
+                    backgroundColor: 'white',
+                  }}
+                />
+              </FormControl>
+            </Box>
+
+            <Box sx={{ display: 'flex', gap: 2 }}>
+
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Box>
+        {availability.map((slot, index) => (
+          <Box key={index} display="flex" alignItems="center" mb={2}>
+            <Box flex={1} mr={1} sx = {{backgroundColor: 'white'}}>
+              <DateTimePicker
+                label="Start Time"
+                value={slot.start}
+                onChange={(newValue) => handleChange(index, 'start', newValue)}
+                renderInput={(props) => <TextField {...props} fullWidth />}
+              />
+            </Box>
+            <Box flex={1} mr={1} sx = {{backgroundColor: 'white'}}>
+              <DateTimePicker
+                label="End Time"
+                value={slot.end}
+                onChange={(newValue) => handleChange(index, 'end', newValue)}
+                renderInput={(props) => <TextField {...props} fullWidth />}
+              />
+            </Box>
+            <IconButton color="error" onClick={() => handleDelete(index)} sx = {{ '&:hover': {
+      backgroundColor: 'rgba(255, 0, 0, 0.1)',  color: 'darkred',  
+    },}}>
+              <Delete />
+            </IconButton>
+          </Box>
+        ))}
+        <Button variant="contained" onClick={handleAdd} startIcon={<Add />}>
+          Add Availability Slot
+        </Button>
+      </Box>
+    </LocalizationProvider>
+            </Box>
+    
+            <Box sx={{ display: 'flex', gap: 2, textAlign: 'center' }}>
               <FormControl fullWidth>
                 <Button
                   component="label"
@@ -177,7 +311,7 @@ function TutorSignIn() {
             </Box>
     
             <Button variant="contained" color="primary" onClick={handleSubmit}>
-              Sign In
+              Sign Up
             </Button>
     
           </Box>
