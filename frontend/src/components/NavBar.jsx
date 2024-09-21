@@ -15,7 +15,7 @@ const Navbar = () => {
         </IconButton>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
         </Typography>
-        <Button color="inherit">Training</Button>
+        {/* <Button color="inherit">Training</Button> */}
         <Button color="inherit">Office Hours</Button>
         <Button color="inherit">Attendance</Button>
         <Button color="inherit">Modules</Button>
