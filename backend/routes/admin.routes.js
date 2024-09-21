@@ -1,12 +1,13 @@
 // routes/admin.routes.js
 import express from "express";
+
 import {
   createAdmin,
   getAdmins,
   getAdminByEmail,
   updateAdmin,
   deleteAdmin,
-} from "../controllers/admin.controller.js";
+} from "../controllers/admin.controllers.js";
 
 const router = express.Router();
 
