@@ -7,28 +7,12 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import Navbar from './components/Navbar';
+import Navbar from '../components/NavBar';
 
 export default function ButtonAppBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ width: '100%', bgcolor: '#67B0E8' }}>
+
       <Navbar />
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <AccountBalanceIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-           First Generation Investors
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
+       
   );
 }
