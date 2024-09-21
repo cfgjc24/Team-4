@@ -1,7 +1,7 @@
 # Team-4: Non-profit: First Generation Investors
 
 # Our Challenge
-Create a centralized web application for First Generation Investors. They need a tool to track and manage student assignments, participation, confidence, and graduation metrics from the view of students, program managers, tutors, and teachers.
+Create a centralized web application + mobile implementation for First Generation Investors. They need a tool to track and manage student assignments, participation, confidence, and graduation metrics from the view of students, program managers, tutors, and teachers.
 
 
 # Team Member Acknowledgements

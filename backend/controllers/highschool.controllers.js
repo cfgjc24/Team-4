@@ -12,6 +12,20 @@ export const getHighSchools = async (req, res) => {
     }
 };
 
+export const getHighSchoolIdFromData = async (req, res) => {
+    const { name, city, state } = req.params; 
+    try {
+        const highschool = await HighSchool.findOne({ "name": name, "city": city, "state": state });
+        if (!highschool) {
+            return res.status(404).json({ success: false, message: 'High School not found' });
+        }
+        res.status(200).json({ success: true, data: highschool.ObjectId });
+    } catch (error) {
+        console.log("Error in fetching high school: ", error.message);
+        res.status(500).json({ success: false, message: "Server Error" });
+    }
+};
+
 // Create a new highschool
 export const createHighSchool = async (req, res) => {
     const {
