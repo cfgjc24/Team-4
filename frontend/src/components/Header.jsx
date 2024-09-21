@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
-export default function ButtonAppBar() {
+export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" className="button-app-bar" sx={{ width: '100%', bgcolor: '#67B0E8' }}>

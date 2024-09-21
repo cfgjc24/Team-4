@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
+import { useNavigate } from 'react-router-dom';
 
 const LogInForm = () => {
   const [formData, setFormData] = useState({
@@ -12,9 +13,11 @@ const LogInForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login data submitted:', formData);
+    navigate("/student-dashboard")
 
     // Add auth here
     // window.location.href = '/teacher-signup'; // Redirect to teacher-signup page after login

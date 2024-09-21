@@ -1,18 +1,17 @@
 import React from 'react';
-import AMenu from '../components/Menu';
 import CourseMaterials from '../components/CourseMaterials';
 import Navbar from '../components/NavBar';
 
-function AdminDashboard() {
+function TutorDashboard() {
   return (
     <div>
       <Navbar></Navbar>
-      <div style={{ paddingTop: '64px' }}>
-        <h1>Welcome, Admins!</h1>
-        <AMenu />
+      <div style={{ paddingTop: '5px' }}>
+        <h1>Welcome, Tutors!</h1>
+        <CourseMaterials/>
       </div>
     </div>
   );
 }
 
-export default AdminDashboard;
+export default TutorDashboard;
