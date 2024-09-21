@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
+import Header from './Header';
 import { useNavigate, Link } from 'react-router-dom';
 
 
 const LogInForm = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: '',
   });
 
@@ -15,17 +15,61 @@ const LogInForm = () => {
   };
 
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Login data submitted:', formData);
-    navigate("/student-dashboard")
+    try {
+      const response = await fetch('http://localhost:5001/api/users/checkUserType', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },  
+        body: JSON.stringify({ email: formData.email }),
+  
+      })
+      const contentType = response.headers.get('content-type');
+    
+    let data;
+    if (contentType && contentType.includes('application/json')) {
+      data = await response.json();
+    } else {
+      console.log(data);
+      throw new Error('Expected JSON response but received something else');
+
+    }
+      if(response.ok)
+      {
+        if(data.userType === 'student')
+        {
+          navigate('/student-dashboard');
+        }
+        else if(data.userType === 'tutor')
+        {
+          navigate('/tutor-dashboard');
+        }
+        else if(data.userType === 'teacher')
+        {
+          navigate('/tutor-dashboard');
+        }
+        else if (data.userType === 'admin')
+        {
+          navigate('/admin-dashboard');
+        }
+      }
+  
+    } catch(error)
+    {
+      console.error('Error:', error);
+    }
+  
+    
 
     // Add auth here
     // window.location.href = '/teacher-signup'; // Redirect to teacher-signup page after login
     
     setFormData({ username: '', password: '' });
   };
-
+  
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
       <Header />

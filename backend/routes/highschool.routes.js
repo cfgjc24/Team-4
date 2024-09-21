@@ -14,6 +14,4 @@ router.put("/:id", updateHighSchool);
 
 router.get("/:name/:city/:state", getHighSchoolIdFromData);
 
-getHighSchoolFromData
-
 export default router;

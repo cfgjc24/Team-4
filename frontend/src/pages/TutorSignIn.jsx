@@ -10,10 +10,11 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Add, Delete } from '@mui/icons-material';
 import dayjs from 'dayjs';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 function TutorSignIn() {
-    
+    const navigate = useNavigate();
     const VisuallyHiddenInput = styled('input')({
         clip: 'rect(0 0 0 0)',
         clipPath: 'inset(50%)',
@@ -129,7 +130,7 @@ function TutorSignIn() {
               });
           
               if (response.ok) {
-                alert('Tutor created successfully!');
+                navigate('/tutor-dashboard');
               } else {
                 alert('Failed to create tutor!');
                 console.error(response);
