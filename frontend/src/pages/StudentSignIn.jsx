@@ -96,7 +96,7 @@ function StudentSignIn() {
 
     const sendData = async (formData) => {
         try {
-        const response = await fetch('http://localhost:5001/api/students/createStudent ', {
+        const response = await fetch('/api/students/createStudent ', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
