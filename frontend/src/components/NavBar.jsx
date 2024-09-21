@@ -6,25 +6,20 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export default function Header() {
+const Navbar = () => {
   return (
-    <AppBar position="fixed" sx= {{ width: '100%', bgcolor: '#67B0E8'}}>
+    <AppBar position="static">
       <Toolbar>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-        >
+        <IconButton edge="start" color="inherit" aria-label="menu">
           <MenuIcon />
         </IconButton>
-        
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-         First Generation Investors
+        <Typography variant="h6" style={{ flexGrow: 1 }}>
+          Navbar
         </Typography>
-        
+        <Button color="inherit">Login</Button>
       </Toolbar>
     </AppBar>
   );
-}
+};
+
+export default Navbar;
