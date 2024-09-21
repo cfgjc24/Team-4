@@ -1,6 +1,6 @@
 import express from "express";
 
-import { createStudent, getStudents, updateStudent, deleteStudent } from '../controllers/Student.controllers.js';
+import { createStudent, getStudents, updateStudent, deleteStudent } from '../controllers/student.controllers.js';
 
 const router = express.Router();
 
