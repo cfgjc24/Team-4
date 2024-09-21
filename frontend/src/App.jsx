@@ -11,6 +11,7 @@ import CourseMaterials from './components/CourseMaterials';
 import StudentDashboard from './pages/StudentDashboard';
 import TeacherSignIn from './pages/TeacherSignIn';
 import AdminSignIn from './pages/AdminSignIn';
+import OfficeHours from './pages/Office'
 import './App.css';
 import './index.css';
 
@@ -33,6 +34,8 @@ function App() {
           <Route path = "/tutor-dashboard" element={<TutorDashboard/>} /> 
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/course-materials" element={<CourseMaterials />} />
+          <Route path="/office-hours" element={<OfficeHours/>} />
+          
         </Routes>
       </Router>
     </>

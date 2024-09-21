@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -16,7 +17,9 @@ const Navbar = () => {
         <Typography variant="h6" style={{ flexGrow: 1 }}>
         </Typography>
         {/* <Button color="inherit">Training</Button> */}
-        <Button color="inherit">Office Hours</Button>
+        <Link to="/office-hours">
+        <Button style={{ color: 'white' }}color="inherit">Office Hours</Button>
+        </Link>
         <Button color="inherit">Attendance</Button>
         <Button color="inherit">Modules</Button>
       </Toolbar>
