@@ -2,7 +2,7 @@ import express from 'express';
 import Student from './model/student.js';
 
 const router = express.Router();
-
+// MONGO QUERIES!!!!
 // demographic metrics
 router.get('/metrics/demographics', async (req, res) => {
     try {
