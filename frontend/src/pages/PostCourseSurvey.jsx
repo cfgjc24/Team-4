@@ -1,35 +1,80 @@
 import React, { useState } from 'react';
 import Question from '../components/Question';
+import { createMetric } from '../../../backend/controllers/metrics.controller';
+import { getStudents } from '../../../backend/controllers/student.controllers';
 
 const PostCourseSurvey = () => {
+  let dummy;
+  const getStudents = async () => {
+    try {
+      const response = await fetch('http://localhost:5001/api/students/getStudents', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      // You can now access the response body
+      const data = await response.json();
+      console.log(data);
+  
+      if (response.ok) {
+        console.log('yay', data);
+        dummy= await data
+        // navigate('/student-dashboard');
+        return data
+      } else {
+        console.error(response.statusText);
+      }
+    } catch (error) {
+      console.log("Error in trying to fetch student data");
+      console.log(error);
+    }
+  };
+  getStudents()
   const [answers, setAnswers] = useState({
-    question1: 0,
-    question2: 0,
-    question3: 0, 
-    question4: 0,
-    question5: 0,
-    question6: 0,
-    question7: 0,
-    question8: 0,
-    question9: 0,
-    question10: 0,
-    question11: 0,
-    question12: 0,
-    question13: 0,
-    question14: 0,
-    question15: 0,
-    question16: 0,
-    question17: 0,
-    question18: 0,
-    question19: 0,
-    question20: 0,
-    question21: 0,
-    question22: 0
+    surveytype: "postcourse",
+    student: '',
+    module: "1",
+    question1: 1,
+    question2: 1,
+    question3: 1, 
+    question4: 1,
+    question5: 2,
+    question6: 3,
+    question7: 4,
+    question8: 4,
+    question9: 5,
+    question10:1,
+    question11: 1,
+    question12: 1,
+    question13: 1,
+    question14: 1,
+    question15: 1,
+    question16: 1,
+    question17: 1,
+    question18: 1,
+    question19: 1,
+    question20: 1,
+    question21: 1,
+    question22: 1
   });
+
+
+const fetchAndSetDummy = async () => {
+  dummy = await getStudents();  // Wait for the getStudents function to finish
+  console.log("Dummy after assignment:", dummy); // Now dummy will have the value
+  console.log(dummy)
+  setAnswers((prevAnswers) => ({
+    ...prevAnswers,      // Spread the previous state
+    student: dummy.data[0], // Update the student field
+  }));
+  
+};
 
   const buttonStyle = {
     padding: '10px 15px',
-    backgroundColor: '#28a745',
+    backgroundColor: '#67B0E8',
     color: 'white',
     border: 'none',
     borderRadius: '4px',
@@ -45,9 +90,43 @@ const PostCourseSurvey = () => {
   };
 
   const handleSubmit = (event) => {
+    fetchAndSetDummy()
     event.preventDefault();
     console.log('Survey submitted with answers:', answers);
+
+    //createMetric(answers)
+    //createStudent(["name"])
+    testSubmit(answers)
   };
+
+
+  const testSubmit = async (answers) => {
+    try {
+      const response = await fetch('http://localhost:5001/api/metrics/createMetric ', {
+          method: 'POST',
+          mode:'no-cors',
+          headers: {
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(answers),
+      });
+      const data = await response.json();
+      console.log(data);
+
+      if (response.ok) {
+          console.log('yay')
+          //navigate('/student-dashboard');
+      }
+      else {
+          console.error(response.statusText);
+      }
+  } catch (error) {
+      console.log("Error in trying to submit form data");
+      console.log(error);
+      };
+
+  };
+  
 
   return (
     <form onSubmit={handleSubmit}>
