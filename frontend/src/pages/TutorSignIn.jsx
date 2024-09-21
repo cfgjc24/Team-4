@@ -1,8 +1,15 @@
 import React from 'react';
 import Header from '../components/header';
-import { FormControl, TextField, Box, Button, Select, MenuItem, InputLabel } from '@mui/material';
+import { FormControl, TextField, Box, Button, Select, MenuItem, InputLabel, IconButton } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/system';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { Add, Delete } from '@mui/icons-material';
+import dayjs from 'dayjs';
+import { useState } from 'react';
+
 
 
 
@@ -27,8 +34,27 @@ function TutorSignIn() {
         'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 
         'WI', 'WY'
       ];
+
+      const [availability, setAvailability] = useState ([{ start: dayjs(), end: dayjs().add(1, 'hour') }]);
+
+      const handleAdd = () => {  setAvailability([...availability, { start: dayjs(), end: dayjs().add(1, 'hour') }]); };
+
+      const handleChange = (index, key, newValue) => {
+        const newAvailability = availability.map((slot, i) =>
+          i === index ? { ...slot, [key]: newValue } : slot
+        );
+        setAvailability(newAvailability);
+      };
+
+        const handleDelete = (index) => { 
+            const newAvailability = availability.filter((slot, i) => i !== index);
+            setAvailability(newAvailability);
+        };
+    
+    
     
       const [state, setState] = React.useState('');
+
       const fileInputRef = React.useRef(null);
     
       const handleStateChange = (event) => {
@@ -156,8 +182,63 @@ function TutorSignIn() {
                 />
               </FormControl>
             </Box>
-    
+
             <Box sx={{ display: 'flex', gap: 2 }}>
+              <FormControl fullWidth>
+                <TextField
+                  required
+                  id="email"
+                  label="Email"
+                  type="email"
+                  variant="outlined"
+                />
+              </FormControl>
+              <FormControl fullWidth>
+                <TextField
+                  required
+                  id="password"
+                  label="Password"
+                  type="password"
+                  variant="outlined"
+                />
+              </FormControl>
+            </Box>
+
+            <Box sx={{ display: 'flex', gap: 2 }}>
+
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Box>
+        {availability.map((slot, index) => (
+          <Box key={index} display="flex" alignItems="center" mb={2}>
+            <Box flex={1} mr={1}>
+              <DateTimePicker
+                label="Start Time"
+                value={slot.start}
+                onChange={(newValue) => handleChange(index, 'start', newValue)}
+                renderInput={(props) => <TextField {...props} fullWidth />}
+              />
+            </Box>
+            <Box flex={1} mr={1}>
+              <DateTimePicker
+                label="End Time"
+                value={slot.end}
+                onChange={(newValue) => handleChange(index, 'end', newValue)}
+                renderInput={(props) => <TextField {...props} fullWidth />}
+              />
+            </Box>
+            <IconButton color="error" onClick={() => handleDelete(index)}>
+              <Delete />
+            </IconButton>
+          </Box>
+        ))}
+        <Button variant="contained" onClick={handleAdd} startIcon={<Add />}>
+          Add Availability Slot
+        </Button>
+      </Box>
+    </LocalizationProvider>
+            </Box>
+    
+            <Box sx={{ display: 'flex', gap: 2, textAlign: 'center' }}>
               <FormControl fullWidth>
                 <Button
                   component="label"
