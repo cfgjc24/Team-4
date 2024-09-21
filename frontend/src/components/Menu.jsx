@@ -19,10 +19,10 @@ export default function AMenu() {
   // Styled Menu
   const StyledMenu = styled(Menu)(({ theme }) => ({
     '& .MuiPaper-root': {
-      backgroundColor: '#ffffff',  // White background
-      color: '#333333',            // Dark text color
-      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  // Shadow for prominence
-      borderRadius: '10px',        // Rounded corners
+      backgroundColor: '#ffffff',  
+      color: '#333333',            
+      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',  
+      borderRadius: '10px',       
       padding: theme.spacing(1),
     },
   }));
@@ -30,11 +30,11 @@ export default function AMenu() {
   // Styled MenuItem
   const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
     '&:hover': {
-      backgroundColor: '#f0f0f0', // Light gray hover effect
+      backgroundColor: '#f0f0f0', 
     },
-    padding: theme.spacing(1.5), // Extra padding for menu items
-    fontWeight: 'bold',          // Bold text for visibility
-    fontSize: '16px',            // Larger font size for emphasis
+    padding: theme.spacing(1.5), 
+    fontWeight: 'bold',          
+    fontSize: '16px',            
   }));
 
   const StyledButton = styled(Button)(({ theme }) => ({
@@ -43,7 +43,7 @@ export default function AMenu() {
     fontWeight: 'bold',           
     padding: theme.spacing(1.5), 
     '&:hover': {
-      backgroundColor: '#115293', // Darker blue on hover
+      backgroundColor: '#115293',
     },
   }));
 
