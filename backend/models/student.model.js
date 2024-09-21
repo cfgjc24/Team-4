@@ -61,8 +61,9 @@ const studentSchema = new mongoose.Schema({
         required: true
     },
     teacher_email: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "Teacher"
     },
     date_of_birth: {
         type: Date,

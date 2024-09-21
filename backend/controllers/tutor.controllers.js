@@ -14,27 +14,48 @@ export const getTutors = async (req, res) => {
 
 // Create a new tutor
 export const createTutor = async (req, res) => {
-    const tutor = req.body; // user sends this data
-
-    // Check if all required fields are provided
-    if (!tutor.name || !tutor.chapter || !tutor.email || !tutor.race || !tutor.ethnicity || !tutor.availability) {
-        return res.status(400).json({ success: false, message: "Please provide all fields" });
-    }
-
-    // Check if email already exists
-    const existingTutor = await Tutor.findOne({ email: tutor.email });
-    if (existingTutor) {
-        return res.status(400).json({ success: false, message: "Tutor with this email already exists" });
-    }
-
-    const newTutor = new Tutor(tutor); // create new tutor with info given
+    const {
+        name,
+        password,
+        chapter,
+        highschool_id,
+        email,
+        race,
+        ethnicity,
+        gender,
+        pronouns,
+        availability
+    } = req.body;
 
     try {
+        // Check if tutor with this email already exists
+        const existingTutor = await Tutor.findOne({ email });
+
+        if (existingTutor) {
+            return res.status(400).json({ message: "Tutor with this email already exists!" });
+        }
+
+        // Create a new student instance
+        const newTutor = new Tutor({
+            name,
+            password,
+            chapter,
+            highschool_id,
+            email,
+            race,
+            ethnicity,
+            gender,
+            pronouns,
+            availability
+        });
+
+        // Save the student to the database
         await newTutor.save();
-        res.status(201).json({ success: true, data: newTutor });
+
+        res.status(201).json({ message: "Tutor created successfully!", data: newStudent });
     } catch (error) {
-        console.error("Error in Create Tutor: ", error.message);
-        res.status(500).json({ success: false, message: "Server Error" });
+        console.log("Error in creating tutor: ", error.message);
+        res.status(500).json({ message: "Server error: " + error.message });
     }
 };
 

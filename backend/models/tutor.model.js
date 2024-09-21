@@ -15,7 +15,7 @@ const tutorSchema = new mongoose.Schema({
         required: true
     },
     highschool_id: {
-        type: [int],
+        type: [mongoose.Schema.Types.ObjectId],
         required: true,
         ref: "HighSchool"
     },
