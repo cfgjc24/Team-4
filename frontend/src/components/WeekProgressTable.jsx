@@ -49,7 +49,7 @@ const WeekProgressTable = () => {
                 border: '2px solid rgba(255, 255, 255, 0.3)',
                 padding: '20px',
                 borderRadius: '8px',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                // backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 backgroundColor: index % 2 === 0 ? '#1F4E79' : '#2A6EBB',
                 display: 'flex',
                 flexDirection: 'column',
@@ -59,7 +59,7 @@ const WeekProgressTable = () => {
               }}
             >
               <Typography variant="h6">{week.week}</Typography>
-              <Typography variant="h6" sx={{ color: '#F1F7FD' }}>{week.week}</Typography>
+              <Typography variant="h6" sx={{ color: '#F1F7FD' }}>{}</Typography>
               {week.completed ? <HoverableCheckIcon /> : null}
             </Box>
           </Grid>

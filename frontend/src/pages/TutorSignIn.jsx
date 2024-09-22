@@ -14,10 +14,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function TutorSignIn() {
-<<<<<<< HEAD
     const navigate = useNavigate();
-=======
->>>>>>> 05f7a16d53f4c31e36533c9b1e1d6d4f6da0704e
     const VisuallyHiddenInput = styled('input')({
         clip: 'rect(0 0 0 0)',
         clipPath: 'inset(50%)',
