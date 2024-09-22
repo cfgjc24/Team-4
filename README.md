@@ -3,6 +3,9 @@
 # Our Challenge
 Create a centralized web application + mobile implementation for First Generation Investors. They need a tool to track and manage student assignments, participation, confidence, and graduation metrics from the view of students, program managers, tutors, and teachers.
 
+<img width="737" alt="FGI_Website_Screenshot" src="https://github.com/user-attachments/assets/7b470903-56b2-4feb-a9ec-2cd8c4aad887">
+
+
 
 # Team Member Acknowledgements
 ## Backend
