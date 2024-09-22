@@ -38,7 +38,7 @@ export default function AMenu() {
   }));
 
   const StyledButton = styled(Button)(({ theme }) => ({
-    backgroundColor: '#67b0e8',
+    backgroundColor: '#0d446e',
     color: '#ffffff',
     fontWeight: 'bold',           
     padding: theme.spacing(1.5), 
