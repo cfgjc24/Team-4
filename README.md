@@ -1,5 +1,11 @@
 # Team-4: Non-profit - First Generation Investors
 
+# How to run
+- clone this git repository
+- Download all necessary packages
+- npm run dev (in backend folder)
+- npm run dev (in frontend folder)
+
 # Our Challenge
 Create a centralized web application + mobile implementation for First Generation Investors. They need a tool to track and manage student assignments, participation, confidence, and graduation metrics from the view of students, program managers, tutors, and teachers.
 
